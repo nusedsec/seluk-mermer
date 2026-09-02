@@ -4,7 +4,7 @@ export default function ProjelerPage() {
   return (
     <div className="main-wrapper">
       <header className="header">
-        <Link href="/" className="logo">CORE<span>RAX</span></Link>
+        <Link href="/" className="logo">SELUK<span>MERMER</span></Link>
         <nav className="nav">
           <Link href="/" className="nav-link">ANASAYFA</Link>
           <Link href="/uygulamalar" className="nav-link">UYGULAMALAR</Link>
