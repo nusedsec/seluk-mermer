@@ -11,8 +11,8 @@ export const viewport: Viewport = {
 
 // GOOGLE ARAMA ETİKETLERİ VE SEO METADATA
 export const metadata: Metadata = {
-  title: "CoreRax | Prestijli Mermer & Mimari Doğal Taş Çözümleri",
-  description: "CoreRax; yüksek segment mimari projelerde mermer, mekanik dış cephe kaplama, yer döşemesi ve özel bookmatch uygulamaları sunar.",
+  title: "SELUK | Prestijli Mermer & Mimari Doğal Taş Çözümleri",
+  description: "SELUK; yüksek segment mimari projelerde mermer, mekanik dış cephe kaplama, yer döşemesi ve özel bookmatch uygulamaları sunar.",
   keywords: [
     "mermer",
     "doğal taş",
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     "yer döşeme",
     "mermer cephe kaplama",
     "lüks mermer tasarımları",
-    "CoreRax mermer"
+    "SELUK mermer"
   ],
-  authors: [{ name: "CoreRax" }],
+  authors: [{ name: "SELUK" }],
   robots: "index, follow",
   openGraph: {
-    title: "CoreRax | Prestijli Mermer & Mimari Doğal Taş Çözümleri",
+    title: "SELUK | Prestijli Mermer & Mimari Doğal Taş Çözümleri",
     description: "Lüks mimari projeler için özel mermer ve doğal taş çözümleri.",
     locale: "tr_TR",
     type: "website",
