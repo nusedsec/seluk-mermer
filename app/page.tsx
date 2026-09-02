@@ -112,7 +112,7 @@ export default function HomePage() {
           </div>
           <div className="about-text">
             <p>
-              CoreRax, yüksek segment mimari projelerde mermer ve doğal taş çözümleri sunan mühendislik odaklı bir firmadır. Taşın doğal dokusunu bozmadan ileri teknoloji kesim ve montaj teknikleriyle yapılara entegre ediyoruz.
+              SELUK, yüksek segment mimari projelerde mermer ve doğal taş çözümleri sunan mühendislik odaklı bir firmadır. Taşın doğal dokusunu bozmadan ileri teknoloji kesim ve montaj teknikleriyle yapılara entegre ediyoruz.
             </p>
             <p>
               Mekanik dış cephe kaplamalarından özel bookmatch uygulamalarına kadar geniş bir yelpazede hizmet veriyor; tasarımdan teslimata kadar olan tüm süreçleri titizlikle yönetiyoruz.
@@ -152,7 +152,7 @@ export default function HomePage() {
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                 <Mail color="#c5a880" size={20} />
-                <span>info@corerax.com</span>
+                <span>info@seluk.com</span>
               </div>
             </div>
 
@@ -226,7 +226,7 @@ export default function HomePage() {
       </section>
 
       <footer className="footer">
-        © {new Date().getFullYear()} CORERAX. Tüm hakları saklıdır.
+        © {new Date().getFullYear()} SELUK. Tüm hakları saklıdır.
       </footer>
     </div>
   );
