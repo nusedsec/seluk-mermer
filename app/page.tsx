@@ -45,7 +45,7 @@ export default function HomePage() {
       {/* NAVİGASYON */}
       <header className="header">
         <Link href="/" className="logo">
-          CORE<span>RAX</span>
+          SELUK<span>MERMER</span>
         </Link>
         <nav className="nav">
           <Link href="/" className="nav-link">ANASAYFA</Link>
