@@ -1,148 +1,252 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import UygulamaCanvas from "./UygulamaCanvas";
 import styles from "./uygulamalar.module.css";
 
-const applicationsData = [
+const categories = [
   {
     id: "yer-doseme",
-    title: "Yer Döşemesi",
-    desc: "Yüksek yaya trafiğine dayanıklı, hassas derz ve ebatlama ile uygulanan zemin mermer çözümleri.",
-    techDetails: [
-      "Kalınlık Standartları: 2cm ve 3cm hassas kesim",
-      "Yüzey İşlemleri: Cilalı, honlu, fırçalanmış (patinato)",
-      "Kaymazlık Derecelendirmesi: R9 - R11 arası ıslak/kuru alan opsiyonları"
-    ]
+    title: "Yer Döşeme",
+    desc: "İç ve dış mekanlar için yüksek dayanımlı, kaymazlık yüzey seçeneğine sahip ve ağır yaya trafiğine uygun özel ebatlı zemin çözümleri.",
+    imageSrc: "/images/yer-doseme.jpg",
   },
   {
     id: "duvar-kaplama",
     title: "Duvar Kaplama",
-    desc: "İç mekanlarda estetik ve akustik bütünlük sağlayan dikey doğal taş kaplama sistemleri.",
-    techDetails: [
-      "Montaj Yöntemi: Yapıştırma harçlı veya ankrajlı sistem",
-      "Bookmatch Bütünlüğü: Plaka damar takip yazılımı ile sıfır hata yerleşim",
-      "Derz Yapısı: 1mm - 2mm mikro derz hassasiyeti"
-    ]
+    desc: "Mimari mekanlara estetik derinlik katan, geniş panel alternatifleri ve özel dokulu iç cephe kaplama sistemleri.",
+    imageSrc: "/images/duvar-kaplama.jpg",
   },
   {
-    id: "dis-cephe-kaplama",
-    title: "Dış Cephe Kaplama",
-    desc: "Zorlu iklim koşullarına dayanıklı, bina yükünü optimize eden dış cephe mermer çözümleri.",
-    techDetails: [
-      "Taş Kalınlığı: Min. 3cm dış cephe sınıfı doğal taş",
-      "Hava Koşulları Dayanımı: Donma-çözünme döngü test onaylı",
-      "Isı İzolasyonu: Taş arkası taş yünü izolasyon entegrasyonu"
-    ]
+    id: "dis-cephe",
+    title: "Dış Cephe",
+    desc: "Sert iklim koşullarına dayanıklı, UV korumalı ve binalara prestij katan mimari dış cephe kaplama konstrüksiyonları.",
+    imageSrc: "/images/dis-cephe.jpg",
   },
   {
-    id: "fiber-kaplama",
-    title: "Fiber Kaplama",
-    desc: "Cam elyaf ve reçine takviyeli ultra hafif, yüksek esneklik ve mukavemet sunan mermer paneller.",
-    techDetails: [
-      "Ağırlık Avantajı: Standart mermere kıyasla %60 daha hafif",
-      "Panel Boyutları: 150x300 cm'ye kadar devasa yekpare boyutlar",
-      "Kullanım Alanları: Asansör kabinleri, yat iç mekanları, yüksek katlı yapılar"
-    ]
+    id: "mekanik-fiber-kaplama",
+    title: "Mekanik Fiber Kaplama",
+    desc: "Fiber takviyeli kompozit yapısı sayesinde hafif ancak yüksek mukavemetli, mekanik taşıyıcılı ileri teknoloji cephe çözümleri.",
+    imageSrc: "/images/mekanik-fiber-kaplama.jpg",
+  },
+];
+
+const technicalItems = [
+  {
+    id: "havalandirmali-cepheler",
+    title: "Mekanik Akıllı Cephe Sistemleri",
+    desc: "Bina kabuğunda oluşturulan hava sirkülasyon boşluğu sayesinde yüksek ısı ve ses yalıtımı sağlayan mekanik taşıyıcılı sistemler.",
+    subText: "Ankraj detayları ve statik hesaplama dokümanı"
   },
   {
-    id: "mekanik-kaplama",
-    title: "Mekanik Kaplama",
-    desc: "Paslanmaz çelik ankraj elemanları ile alt taşıyıcı konstrüksiyona bağlanan havalandırmalı cephe sistemi.",
-    techDetails: [
-      "Ankraj Tipi: AISI 304 / 316 paslanmaz çelik braketler",
-      "Güvenlik Faktörü: Deprem yükü ve rüzgar statik hesaplamalı",
-      "Sistem Tipi: Gizli pimli veya pürüzsüz klipsli alüminyum karkas"
-    ]
+    id: "yer-doseme-teknikleri",
+    title: "Yüksek Trafik Yer Döşemeleri",
+    desc: "Ağır yaya trafiğine ve mekanik yüklere dayanıklı, kalibre edilmiş yüksek hassasiyetli zemin kaplama çözümleri.",
+    subText: "Aşınma direnci ve yüzey işleme standartları"
+  },
+  {
+    id: "fiber-panel-montaj",
+    title: "Mekanik Fiber Panel Montajı",
+    desc: "Hafifletilmiş fiber takviyeli kompozit panellerin çelik veya alüminyum karkaslar üzerine özel klips ve perçinlerle entegrasyonu.",
+    subText: "Fiber panel montaj kılavuzu ve kesit şemaları"
   }
 ];
 
-const processSteps = [
-  { step: "01", title: "Saha & Rölöve Alımı", desc: "Lazer tarayıcılar ile alanın milimetrik dijital ölçümü alınır." },
-  { step: "02", title: "3D Mimari Görselleştirme", desc: "Plaka damarları bilgisayar ortamında eşleştirilir; alanın bitmiş 3D görseli sunulur." },
-  { step: "03", title: "CNC & Precision Kesim", desc: "Onaylanan proje, su jeti ve CNC tezgahlarında sıfır hata ile kesilir." },
-  { step: "04", title: "Saha Uygulaması & Teslimat", desc: "Uzman montaj ekibi tarafından uygulama yapılır ve teslim edilir." }
-];
-
 export default function ApplicationsPage() {
-  const [activeStep, setActiveStep] = useState(1);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <main className={styles.appContainer}>
-      {/* HERO SECTION */}
-      <section className={styles.heroSection}>
-        <span className={styles.subtitle}>SELUK MERMER</span>
-        <h1 className={styles.title}>Uygulamalarımız</h1>
-        <p className={styles.heroDesc}>
-          Mimari projeleriniz için teknik standartlara uygun, yüksek mukavemetli ve estetik mermer uygulama çözümleri.
-        </p>
-      </section>
+    <main className={styles.page}>
+      <div className={styles.container}>
 
-      {/* UYGULAMALAR GRID */}
-      <section className={styles.gridSection}>
-        {applicationsData.map((item) => (
-          <div key={item.id} className={styles.appCard}>
-            <div>
-              <span className={styles.cardCat}>KATEGORİ</span>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardDesc}>{item.desc}</p>
-            </div>
-
-            <div className={styles.cardTech}>
-              <h4 className={styles.techHead}>TEKNİK DETAYLAR</h4>
-              <ul className={styles.techUl}>
-                {item.techDetails.map((detail, idx) => (
-                  <li key={idx} className={styles.techLi}>
-                    <span className={styles.bullet}>▪</span> {detail}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      {/* 3D VE SÜREÇ BÖLÜMÜ */}
-      <section className={styles.processBox}>
-        <span className={styles.subtitle}>SÜREÇ YÖNETİMİ</span>
-        <h2 className={styles.title} style={{ fontSize: "2rem" }}>Mimari Projenin Hayata Geçişi</h2>
-
-        <div className={styles.processLayout}>
-          <div className={styles.canvasWrapper}>
-            <UygulamaCanvas activeStep={activeStep} />
-          </div>
-
-          <div className={styles.stepsWrapper}>
-            {processSteps.map((item, index) => (
-              <div
-                key={item.step}
-                onClick={() => setActiveStep(index)}
-                className={`${styles.stepItem} ${activeStep === index ? styles.stepItemActive : ""}`}
-              >
-                <div className={styles.stepHeader}>
-                  <span className={styles.stepNum}>{item.step}</span>
-                  <h3 className={styles.stepTitle}>{item.title}</h3>
-                </div>
-                <p className={styles.stepDesc}>{item.desc}</p>
+        {/* BÖLÜMLENMİŞ KATEGORİLER */}
+        <div className={styles.categoriesContainer}>
+          {categories.map((cat) => (
+            <section key={cat.id} className={styles.categorySectionItem}>
+              <div className={styles.categoryImageWrapper}>
+                <Image
+                  src={cat.imageSrc}
+                  alt={cat.title}
+                  fill
+                  unoptimized
+                  className={styles.img}
+                  priority
+                />
               </div>
-            ))}
-          </div>
+              <div className={styles.categoryContent}>
+                <h2 className={styles.categoryTitle}>{cat.title}</h2>
+                <p className={styles.categoryDesc}>{cat.desc}</p>
+              </div>
+            </section>
+          ))}
         </div>
-      </section>
 
-      {/* İLETİŞİM CTA */}
-      <section className={styles.ctaWrapper}>
-        <div className={styles.ctaContent}>
-          <h2 className={styles.ctaHead}>Bizimle İletişime Geçmek İster Mısınız?</h2>
-          <p className={styles.ctaText}>
-            Projenizin detaylarını değerlendirmek, teknik danışmanlık almak ve fiyat teklifi oluşturmak için ekibimizle hemen iletişime geçin.
-          </p>
-          <Link href="/iletisim" className={styles.ctaBtn}>
-            İLETİŞİME GEÇ
-          </Link>
-        </div>
-      </section>
+        {/* TEKNİK BÖLÜM */}
+        <section className={styles.technicalSection}>
+          <div className={styles.techImageWrapper}>
+            <Image
+              src="/images/teknik-bolum.jpg"
+              alt="Mekanik Cephe ve Montaj Teknik Görseli"
+              fill
+              unoptimized
+              className={styles.img}
+            />
+          </div>
+
+          <div>
+            <span className={styles.sectionBadge}>MÜHENDİSLİK</span>
+            <h2 className={styles.mainTitle}>Teknik Bölüm</h2>
+
+            <div className={styles.accordionList}>
+              {technicalItems.map((item, index) => {
+                const isOpen = openIndex === index;
+
+                return (
+                  <div key={item.id} className={styles.accordionItem}>
+                    <button 
+                      className={styles.accordionHeader}
+                      onClick={() => toggleAccordion(index)}
+                      type="button"
+                    >
+                      <h3 className={styles.itemTitle}>{item.title}</h3>
+                      <span className={styles.icon}>
+                        {isOpen ? "→" : "+"}
+                      </span>
+                    </button>
+
+                    {isOpen && (
+                      <div className={styles.accordionBody}>
+                        <p className={styles.itemDesc}>{item.desc}</p>
+                        <p className={styles.subText}>
+                          <span>{item.subText}</span>
+                          <span>→</span>
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* PROJE VURGUSU */}
+        <section className={styles.projectHighlight}>
+          <div className={styles.projectInfo}>
+            <span className={styles.sectionBadge} style={{ color: "#a3b09a" }}>ÖNE ÇIKAN PROJE</span>
+            <h2 className={styles.projectTitle}>Seluk Merkez & Showroom</h2>
+            <table className={styles.projectMetaTable}>
+              <tbody>
+                <tr>
+                  <td className={styles.metaLabel}>YIL</td>
+                  <td className={styles.metaValue}>2025</td>
+                </tr>
+                <tr>
+                  <td className={styles.metaLabel}>MİMARLIK</td>
+                  <td className={styles.metaValue}>Seluk Mimari Tasarım Grubu</td>
+                </tr>
+                <tr>
+                  <td className={styles.metaLabel}>KAPLAMA</td>
+                  <td className={styles.metaValue}>Mekanik Fiber & Dış Cephe</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className={styles.projectImageWrapper}>
+            <Image
+              src="/images/dis-cephe.jpg"
+              alt="Seluk Genel Merkez Projesi"
+              fill
+              unoptimized
+              className={styles.img}
+            />
+          </div>
+        </section>
+
+        {/* İLETİŞİM KUTUSU */}
+        <section className={styles.contactBoard}>
+          <div>
+            <span className={styles.sectionBadge}>DESTEK VE DANIŞMANLIK</span>
+            <h2 className={styles.contactTitle}>Bilgi talep edin</h2>
+            <p className={styles.contactText}>
+              Ürün teknik detayları, statik hesaplamalar, ebatlandırma ve projenize özel teklif almak için mimari ekibimizle iletişime geçebilirsiniz.
+            </p>
+          </div>
+          <div>
+            <Link href="/iletisim" className={styles.contactButton}>
+              Ekiple İletişime Geçin
+            </Link>
+          </div>
+        </section>
+
+        {/* FOOTER */}
+        <footer className={styles.footer}>
+          <div>
+            <span className={styles.footerColTitle}>İletişim & Konum</span>
+            <p className={styles.footerText}>
+              <strong>Seluk Sanayi ve Tic. A.Ş.</strong><br />
+              Organize Sanayi Bölgesi, No: 42<br />
+              Başakşehir / İstanbul – Türkiye
+            </p>
+          </div>
+
+          <div>
+            <span className={styles.footerColTitle}>Kurumsal</span>
+            <ul className={styles.footerList}>
+              <li className={styles.footerListItem}>Yasal Bildirim</li>
+              <li className={styles.footerListItem}>Kalite Standartları</li>
+              <li className={styles.footerListItem}>KVKK & Gizlilik</li>
+            </ul>
+          </div>
+
+          <div>
+            <span className={styles.footerColTitle}>Sosyal Medya</span>
+            <ul className={styles.footerList}>
+              <li className={styles.footerListItem}>
+                <a 
+                  href="https://www.instagram.com/selukmermer?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  Instagram
+                </a>
+              </li>
+              <li className={styles.footerListItem}>LinkedIn</li>
+            </ul>
+          </div>
+
+          <div>
+            <span className={styles.footerColTitle}>Dokümantasyon</span>
+            <ul className={styles.footerList}>
+              <li className={styles.footerListItem}>
+                <a 
+                  href="/pdf/isler.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  Projeler (PDF)
+                </a>
+              </li>
+              <li className={styles.footerListItem}>
+                <Link 
+                  href="/iletisim"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  Teknik Şartnameler
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </footer>
+
+      </div>
     </main>
   );
 }

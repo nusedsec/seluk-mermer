@@ -1,206 +1,454 @@
-.appContainer {
+.page {
+  background-color: #f7f6f2;
+  color: #1a1c18;
   min-height: 100vh;
-  background-color: #080808;
-  color: #ffffff;
-  padding: 8rem 2rem 4rem 2rem;
-  font-family: system-ui, -apple-system, sans-serif;
-  max-width: 1280px;
-  margin: 0 auto;
+  padding: 3.5rem 1.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.subtitle {
-  color: #c5a880;
-  font-size: 0.75rem;
-  font-family: monospace;
-  letter-spacing: 2px;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.title {
-  font-size: 2.8rem;
-  font-family: Georgia, serif;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.heroDesc {
-  color: #aaa;
-  max-width: 650px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 3rem;
-}
-
-.gridSection {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 5rem;
-}
-
-.appCard {
-  background: rgba(15, 15, 15, 0.8);
-  border: 1px solid rgba(197, 168, 128, 0.2);
-  padding: 1.8rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cardCat {
-  color: #c5a880;
-  font-size: 0.65rem;
-  font-family: monospace;
-  letter-spacing: 2px;
-}
-
-.cardTitle {
-  font-size: 1.4rem;
-  font-family: Georgia, serif;
-  margin: 0.4rem 0 0.8rem 0;
-}
-
-.cardDesc {
-  color: #888;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-}
-
-.cardTech {
-  border-top: 1px solid rgba(197, 168, 128, 0.15);
-  padding-top: 1rem;
-}
-
-.techHead {
-  color: #c5a880;
-  font-size: 0.7rem;
-  font-family: monospace;
-  margin-bottom: 0.8rem;
-  letter-spacing: 1px;
-}
-
-.techUl {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.techLi {
-  color: #999;
-  font-size: 0.8rem;
-  margin-bottom: 0.4rem;
-  line-height: 1.4;
-}
-
-.bullet {
-  color: #c5a880;
-}
-
-.processBox {
-  background: rgba(15, 15, 15, 0.5);
-  border: 1px solid rgba(197, 168, 128, 0.2);
-  padding: 2.5rem;
-  margin-bottom: 5rem;
-}
-
-.processLayout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-@media (min-width: 900px) {
-  .processLayout {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 768px) {
+  .page {
+    padding: 6rem 2rem;
   }
 }
 
-.stepsWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-.stepItem {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.stepItemActive {
-  background: rgba(197, 168, 128, 0.1);
-  border-color: #c5a880;
-}
-
-.stepHeader {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 0.3rem;
-}
-
-.stepNum {
-  color: #c5a880;
+.sectionBadge {
   font-family: monospace;
-  font-weight: bold;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #586352;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
-.stepTitle {
-  font-size: 0.95rem;
-  margin: 0;
+.mainTitle {
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: #2b3227;
+  margin: 0 0 2.5rem 0;
+  letter-spacing: -0.5px;
 }
 
-.stepDesc {
-  color: #777;
-  font-size: 0.8rem;
-  margin: 0;
-  padding-left: 1.8rem;
+@media (min-width: 768px) {
+  .mainTitle {
+    margin-bottom: 3.5rem;
+  }
 }
 
-.ctaWrapper {
-  margin-top: 3rem;
-}
-
-.ctaContent {
-  background: linear-gradient(135deg, #141414 0%, #0a0a0a 100%);
-  border: 1px solid #c5a880;
-  padding: 3rem 2rem;
-  text-align: center;
+/* KATEGORİ BÖLÜMLERİ LİSTESİ */
+.categoriesContainer {
   display: flex;
   flex-direction: column;
+  gap: 3.5rem;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid rgba(43, 50, 39, 0.2);
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .categoriesContainer {
+    gap: 5rem;
+    margin-bottom: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* HER BİR KATEGORİ SECTION'I */
+.categorySectionItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   align-items: center;
 }
 
-.ctaHead {
+@media (min-width: 992px) {
+  .categorySectionItem {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+  }
+}
+
+/* GÖRSEL ALANI */
+.categoryImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background-color: #ebe9e3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (min-width: 576px) {
+  .categoryImageWrapper {
+    height: 340px;
+  }
+}
+
+@media (min-width: 768px) {
+  .categoryImageWrapper {
+    height: 460px;
+  }
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* METİN KUTUSU */
+.categoryContent {
+  background-color: #efece6;
+  padding: 2rem 1.5rem;
+  border-left: 4px solid #2b3227;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .categoryContent {
+    padding: 3.5rem 2.5rem;
+  }
+}
+
+.categoryTitle {
   font-family: Georgia, serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: #2b3227;
+  margin: 0 0 0.8rem 0;
+  font-weight: 400;
 }
 
-.ctaText {
-  color: #aaa;
-  font-size: 0.9rem;
-  max-width: 550px;
-  margin-bottom: 1.5rem;
+.categoryDesc {
+  font-size: 0.95rem;
   line-height: 1.6;
+  color: #383e34;
+  margin: 0;
 }
 
-.ctaBtn {
-  background: #c5a880;
-  color: #000;
-  padding: 0.8rem 2rem;
-  font-size: 0.75rem;
-  font-weight: bold;
-  letter-spacing: 2px;
+@media (min-width: 768px) {
+  .categoryDesc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+}
+
+/* TEKNİK BÖLÜM (AKORDEON) */
+.technicalSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 992px) {
+  .technicalSection {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 5rem;
+    margin-bottom: 6rem;
+  }
+}
+
+.techImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #ebe9e3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .techImageWrapper {
+    height: 580px;
+  }
+}
+
+.accordionList {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordionItem {
+  border-bottom: 1px solid rgba(43, 50, 39, 0.2);
+}
+
+.accordionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 1rem 0;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .accordionHeader {
+    padding: 1.3rem 0;
+  }
+}
+
+.itemTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2b3227;
+  margin: 0;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .itemTitle {
+    font-size: 1.1rem;
+  }
+}
+
+.icon {
+  font-size: 1.25rem;
+  color: #2b3227;
+}
+
+.accordionBody {
+  padding-bottom: 1.2rem;
+}
+
+.itemDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #383e34;
+  margin: 0 0 0.8rem 0;
+}
+
+@media (min-width: 768px) {
+  .itemDesc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+}
+
+.subText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #2b3227;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* PROJE VURGUSU */
+.projectHighlight {
+  background-color: #2b3227;
+  color: #f7f6f2;
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  border-radius: 4px;
+}
+
+@media (min-width: 992px) {
+  .projectHighlight {
+    grid-template-columns: 1fr 1fr;
+    padding: 4rem 3.5rem;
+    margin-bottom: 6rem;
+    gap: 2.5rem;
+  }
+}
+
+.projectTitle {
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 300;
+  margin: 0 0 1.2rem 0;
+  color: #f7f6f2;
+}
+
+.projectMetaTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.projectMetaTable tr {
+  border-bottom: 1px solid rgba(247, 246, 242, 0.15);
+}
+
+.projectMetaTable td {
+  padding: 0.6rem 0;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .projectMetaTable td {
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+  }
+}
+
+.metaLabel {
+  font-family: monospace;
+  color: #a3b09a;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  width: 40%;
+}
+
+.metaValue {
+  color: #f7f6f2;
+  font-weight: 500;
+  text-align: right;
+}
+
+.projectImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background-color: #383e34;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .projectImageWrapper {
+    height: 380px;
+  }
+}
+
+/* İLETİŞİM KUTUSU */
+.contactBoard {
+  background-color: #efece6;
+  border-left: 4px solid #2b3227;
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .contactBoard {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 3rem;
+    margin-bottom: 6rem;
+    gap: 2rem;
+  }
+}
+
+.contactTitle {
+  font-family: Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #2b3227;
+  margin: 0 0 0.8rem 0;
+  font-weight: 400;
+}
+
+.contactText {
+  color: #383e34;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 650px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .contactText {
+    font-size: 1.05rem;
+  }
+}
+
+.contactButton {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid #2b3227;
+  color: #2b3227;
   text-decoration: none;
-  transition: background 0.2s;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  border-radius: 2px;
 }
 
-.ctaBtn:hover {
-  background: #b3956d;
+@media (min-width: 768px) {
+  .contactButton {
+    width: auto;
+    padding: 1rem 2rem;
+  }
+}
+
+.contactButton:hover {
+  background-color: #2b3227;
+  color: #f7f6f2;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 2px solid #2b3227;
+  padding-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 576px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .footer {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    padding-top: 4rem;
+    gap: 3rem;
+  }
+}
+
+.footerColTitle {
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #586352;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.footerText {
+  font-size: 0.88rem;
+  color: #383e34;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footerList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footerListItem {
+  font-size: 0.88rem;
+  color: #2b3227;
 }
