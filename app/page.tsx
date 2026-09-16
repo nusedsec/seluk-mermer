@@ -6,25 +6,25 @@ import { ArrowRight, Mail, Phone, MapPin, Send } from "lucide-react";
 
 const HERO_SLIDES = [
   {
-    id: "sahara-noir",
-    subtitle: "MİMARİ DUVAR KAPLAMA",
-    title: "SAHARA NOIR",
-    description: "Siyah mermerin altın damarlarla kusursuz uyumu. İç ve dış mekanda benzersiz lüks anlayışı.",
-    bgImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1800"
+    id: "yesil-cami",
+    subtitle: "DİNİ & MİMARİ YAPI",
+    title: "YEŞİL CAMİ",
+    description: "Geleneksel motiflerin modern doğal taş işçiliği ve mekanik kaplama teknikleriyle buluştuğu ibadet alanı projemiz.",
+    bgImage: "/main1.webp"
   },
   {
-    id: "calacatta-extra",
-    subtitle: "İÇ MEKAN ZEMİN DÖŞEME",
-    title: "CALACATTA EXTRA",
-    description: "İtalyan mermer geleneğinin en saf hali. Geniş alanlarda ferahlık ve zamansız zarafet.",
-    bgImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1800"
+    id: "goldeneye-hotel",
+    subtitle: "OTEL & REZİDANS KAPLAMA",
+    title: "GOLDENEYE HOTEL",
+    description: "Lüks mimari detaylar, geniş alan zemin döşemeleri ve özel üretim bookmatch mermer uygulamaları.",
+    bgImage: "/main2.webp"
   },
   {
-    id: "statuario-venato",
-    subtitle: "BOOKMATCH & ÖZEL UYGULAMA",
-    title: "STATUARIO VENATO",
-    description: "Simetrik damar takibi ile mimari yapılarda odak noktası oluşturan doğal taş sanatı.",
-    bgImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=1800"
+    id: "raparin-villa",
+    subtitle: "ÖZEL LÜKS KONUT",
+    title: "RAPARIN VILLA",
+    description: "Özel kesim dış cephe mekanik fiber kaplaması ve prestijli iç mekan zemin çözümleri.",
+    bgImage: "/main3.webp"
   }
 ];
 
@@ -75,7 +75,7 @@ export default function HomePage() {
         </nav>
       </header>
 
-      {/* TASK 1: EKRANI SIIRLAYAN TAM GENİŞLİK HERO SEKSİYONU */}
+      {/* HERO SEKSİYONU */}
       <section 
         className="hero-showcase-container"
         style={{ backgroundImage: `url(${currentSlide.bgImage})` }}
@@ -96,14 +96,14 @@ export default function HomePage() {
                 className={`tab-btn ${activeIndex === index ? "active" : ""}`}
                 onClick={() => setActiveIndex(index)}
               >
-                0{index + 1}. {slide.title}
+                 {slide.title}
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TASK 2: VİZYON VE FİRMA TANITIMI (KOYU MERMER TEMALI) */}
+      {/* VİZYON VE FİRMA TANITIMI */}
       <section className="section-full">
         <div className="about-grid">
           <div>
@@ -131,7 +131,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TASK 3: İLETİŞİM FORMU BÖLÜMÜ */}
+      {/* İLETİŞİM FORMU BÖLÜMÜ */}
       <section className="contact-section">
         <div className="contact-grid">
           <div>
@@ -183,7 +183,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TASK 4: PRESTİJLİ MİMARİ PROJE KARTLARI */}
+      {/* PRESTİJLİ MİMARİ PROJE KARTLARI */}
       <section className="projects-section">
         <div className="projects-top">
           <div>
@@ -196,37 +196,79 @@ export default function HomePage() {
         </div>
 
         <div className="projects-grid">
-          <div className="project-card" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000')" }}>
-            <div className="project-card-overlay"></div>
-            <div className="project-card-content">
-              <span className="project-cat">LÜKS KONUT</span>
-              <h3 className="project-title">Bodrum Villa Rezidans</h3>
-              <p className="project-desc">Özel kesim mermer mekanik dış cephe kaplaması ve iç mekan yer döşemeleri uygulaması.</p>
-            </div>
-          </div>
+  <Link href="/projeler#yesil-cami" className="project-card" style={{ backgroundImage: "url('/main1.webp')" }}>
+    <div className="project-card-overlay"></div>
+    <div className="project-card-content">
+      <span className="project-cat">DİNİ & MİMARİ YAPI</span>
+      <h3 className="project-title">Yeşil Cami</h3>
+      <p className="project-desc">Özel işçilikli mermer mekanik dış cephe ve iç mekan taş kaplama uygulamaları.</p>
+    </div>
+  </Link>
 
-          <div className="project-card" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=1000')" }}>
-            <div className="project-card-overlay"></div>
-            <div className="project-card-content">
-              <span className="project-cat">TİCARİ YAPILAR</span>
-              <h3 className="project-title">İstanbul Plaza Lobi</h3>
-              <p className="project-desc">Geniş ebat simetrik damar takipli (Bookmatch) duvar kaplama ve zemin döşeme.</p>
-            </div>
-          </div>
+  <Link href="/projeler#goldeneye-hotel" className="project-card" style={{ backgroundImage: "url('/main2.webp')" }}>
+    <div className="project-card-overlay"></div>
+    <div className="project-card-content">
+      <span className="project-cat">OTEL & REZİDANS</span>
+      <h3 className="project-title">GoldenEye Hotel</h3>
+      <p className="project-desc">Geniş ebat simetrik damar takipli (Bookmatch) duvar ve lobi zemin döşemesi.</p>
+    </div>
+  </Link>
 
-          <div className="project-card" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000')" }}>
-            <div className="project-card-overlay"></div>
-            <div className="project-card-content">
-              <span className="project-cat">OTEL & REZİDANS</span>
-              <h3 className="project-title">Ege Spa & Resort</h3>
-              <p className="project-desc">Kaymaz doğal taş yer döşemeleri ve özel su yalıtımlı fiber kaplama havuz alanları.</p>
-            </div>
-          </div>
-        </div>
+  <Link href="/projeler#raparin-villa" className="project-card" style={{ backgroundImage: "url('/main3.webp')" }}>
+    <div className="project-card-overlay"></div>
+    <div className="project-card-content">
+      <span className="project-cat">LÜKS KONUT</span>
+      <h3 className="project-title">Raparin Villa</h3>
+      <p className="project-desc">Özel tasarım dış cephe kaplamaları ve su yalıtımlı zemin çözümleri.</p>
+    </div>
+  </Link>
+</div>
       </section>
 
-      <footer className="footer">
-        © {new Date().getFullYear()} SELUK. Tüm hakları saklıdır.
+      <footer className="footer-bar">
+        <div className="footer-container">
+          {/* İletişim & Konum */}
+          <div className="footer-col">
+            <h4 className="footer-title">İletişim & Konum</h4>
+            <p className="footer-text">
+              Seluk Sanayi ve Tic. A.Ş.<br />
+              Organize Sanayi Bölgesi, No: 42<br />
+              Başakşehir / İstanbul – Türkiye
+            </p>
+          </div>
+
+          {/* Kurumsal */}
+          <div className="footer-col">
+            <h4 className="footer-title">Kurumsal</h4>
+            <ul className="footer-links">
+              <li><Link href="/yasal-bildirim">Yasal Bildirim</Link></li>
+              <li><Link href="/kalite-standartlari">Kalite Standartları</Link></li>
+              <li><Link href="/kvkk">KVKK & Gizlilik</Link></li>
+            </ul>
+          </div>
+
+          {/* Sosyal Medya */}
+          <div className="footer-col">
+            <h4 className="footer-title">Sosyal Medya</h4>
+            <ul className="footer-links">
+              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+          </div>
+
+          {/* Dokümantasyon */}
+          <div className="footer-col">
+            <h4 className="footer-title">Dokümantasyon</h4>
+            <ul className="footer-links">
+              <li><a href="/dokumanlar/projeler.pdf" download>Projeler (PDF)</a></li>
+              <li><a href="/dokumanlar/teknik-sartnameler.pdf" download>Teknik Şartnameler</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          © {new Date().getFullYear()} Seluk Sanayi ve Tic. A.Ş. Tüm hakları saklıdır.
+        </div>
       </footer>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./uygulamalar.module.css";
@@ -37,37 +37,71 @@ const technicalItems = [
     id: "havalandirmali-cepheler",
     title: "Mekanik Akıllı Cephe Sistemleri",
     desc: "Bina kabuğunda oluşturulan hava sirkülasyon boşluğu sayesinde yüksek ısı ve ses yalıtımı sağlayan mekanik taşıyıcılı sistemler.",
-    subText: "Ankraj detayları ve statik hesaplama dokümanı"
+    subText: "Ankraj detayları ve statik hesaplama dokümanı",
   },
   {
     id: "yer-doseme-teknikleri",
     title: "Yüksek Trafik Yer Döşemeleri",
     desc: "Ağır yaya trafiğine ve mekanik yüklere dayanıklı, kalibre edilmiş yüksek hassasiyetli zemin kaplama çözümleri.",
-    subText: "Aşınma direnci ve yüzey işleme standartları"
+    subText: "Aşınma direnci ve yüzey işleme standartları",
   },
   {
     id: "fiber-panel-montaj",
     title: "Mekanik Fiber Panel Montajı",
     desc: "Hafifletilmiş fiber takviyeli kompozit panellerin çelik veya alüminyum karkaslar üzerine özel klips ve perçinlerle entegrasyonu.",
-    subText: "Fiber panel montaj kılavuzu ve kesit şemaları"
-  }
+    subText: "Fiber panel montaj kılavuzu ve kesit şemaları",
+  },
 ];
 
 export default function ApplicationsPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  }, []);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <main className={styles.page}>
+    <main className={styles.page} style={{ backgroundColor: "#0a0a0a", color: "#fff", minHeight: "100vh" }}>
+
+      {/* ÜST MÜŞTERİ / NAVİGASYON BARI */}
+      <header className={styles.navbarWrapper}>
+        <div className={styles.navbarInner}>
+          <Link href="/" className={styles.logo}>
+            SELUK MERMER
+          </Link>
+          <nav className={styles.navMenu}>
+            <Link href="/" className={styles.navLink}>Anasayfa</Link>
+            <Link href="/uygulamalar" className={`${styles.navLink} ${styles.activeLink}`}>Uygulamalar</Link>
+            <Link href="/projeler" className={styles.navLink}>Projeler</Link>
+            <Link href="/iletisim" className={styles.navLink}>İletişim</Link>
+          </nav>
+        </div>
+      </header>
+
       <div className={styles.container}>
+
+        {/* SAYFA BAŞLIĞI */}
+        <div className={styles.pageHeader}>
+          <span className={styles.sectionBadge}>ÇÖZÜMLERİMİZ</span>
+          <h1 className={styles.pageTitle}>Uygulamalar</h1>
+        </div>
 
         {/* BÖLÜMLENMİŞ KATEGORİLER */}
         <div className={styles.categoriesContainer}>
           {categories.map((cat) => (
-            <section key={cat.id} className={styles.categorySectionItem}>
+            <section key={cat.id} id={cat.id} className={styles.categorySectionItem}>
               <div className={styles.categoryImageWrapper}>
                 <Image
                   src={cat.imageSrc}
@@ -108,7 +142,7 @@ export default function ApplicationsPage() {
 
                 return (
                   <div key={item.id} className={styles.accordionItem}>
-                    <button 
+                    <button
                       className={styles.accordionHeader}
                       onClick={() => toggleAccordion(index)}
                       type="button"
@@ -184,65 +218,59 @@ export default function ApplicationsPage() {
           </div>
         </section>
 
-        {/* FOOTER */}
-        <footer className={styles.footer}>
-          <div>
-            <span className={styles.footerColTitle}>İletişim & Konum</span>
-            <p className={styles.footerText}>
-              <strong>Seluk Sanayi ve Tic. A.Ş.</strong><br />
-              Organize Sanayi Bölgesi, No: 42<br />
-              Başakşehir / İstanbul – Türkiye
-            </p>
+        {/* KURUMSAL FOOTER BARI */}
+        <footer className="footer-bar">
+          <div className="footer-container">
+            {/* İletişim & Konum */}
+            <div className="footer-col">
+              <h4 className="footer-title">İletişim & Konum</h4>
+              <p className="footer-text">
+                <strong style={{ color: "#fff", fontWeight: 500 }}>Seluk Sanayi ve Tic. A.Ş.</strong><br />
+                Organize Sanayi Bölgesi, No: 42<br />
+                Başakşehir / İstanbul – Türkiye
+              </p>
+            </div>
+
+            {/* Kurumsal */}
+            <div className="footer-col">
+              <h4 className="footer-title">Kurumsal</h4>
+              <ul className="footer-links">
+                <li><Link href="/yasal-bildirim">Yasal Bildirim</Link></li>
+                <li><Link href="/kalite-standartlari">Kalite Standartları</Link></li>
+                <li><Link href="/kvkk">KVKK & Gizlilik</Link></li>
+              </ul>
+            </div>
+
+            {/* Sosyal Medya */}
+            <div className="footer-col">
+              <h4 className="footer-title">Sosyal Medya</h4>
+              <ul className="footer-links">
+                <li>
+                  <a
+                    href="https://www.instagram.com/selukmermer?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              </ul>
+            </div>
+
+            {/* Dokümantasyon */}
+            <div className="footer-col">
+              <h4 className="footer-title">Dokümantasyon</h4>
+              <ul className="footer-links">
+                <li><Link href="/projeler">Projeler</Link></li>
+                <li><a href="/dokumanlar/teknik-sartnameler.pdf" download>Teknik Şartnameler</a></li>
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <span className={styles.footerColTitle}>Kurumsal</span>
-            <ul className={styles.footerList}>
-              <li className={styles.footerListItem}>Yasal Bildirim</li>
-              <li className={styles.footerListItem}>Kalite Standartları</li>
-              <li className={styles.footerListItem}>KVKK & Gizlilik</li>
-            </ul>
-          </div>
-
-          <div>
-            <span className={styles.footerColTitle}>Sosyal Medya</span>
-            <ul className={styles.footerList}>
-              <li className={styles.footerListItem}>
-                <a 
-                  href="https://www.instagram.com/selukmermer?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
-                  Instagram
-                </a>
-              </li>
-              <li className={styles.footerListItem}>LinkedIn</li>
-            </ul>
-          </div>
-
-          <div>
-            <span className={styles.footerColTitle}>Dokümantasyon</span>
-            <ul className={styles.footerList}>
-              <li className={styles.footerListItem}>
-                <a 
-                  href="/pdf/isler.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
-                  Projeler (PDF)
-                </a>
-              </li>
-              <li className={styles.footerListItem}>
-                <Link 
-                  href="/iletisim"
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
-                  Teknik Şartnameler
-                </Link>
-              </li>
-            </ul>
+          <div className="footer-bottom">
+            <span>© {new Date().getFullYear()} Seluk Sanayi ve Tic. A.Ş. Tüm hakları saklıdır.</span>
+            <span>Mermer & Doğal Taş Mühendisliği</span>
           </div>
         </footer>
 

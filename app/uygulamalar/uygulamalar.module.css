@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
 .page {
-  background-color: #f7f6f2;
-  color: #1a1c18;
+  background-color: transparent;
+  color: #f5f5f5;
   min-height: 100vh;
-  padding: 3.5rem 1.25rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 0 1.25rem 3.5rem 1.25rem;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
 }
 
 @media (min-width: 768px) {
   .page {
-    padding: 6rem 2rem;
+    padding: 0 2rem 6rem 2rem;
   }
 }
 
@@ -17,23 +19,113 @@
   margin: 0 auto;
 }
 
-.sectionBadge {
-  font-family: monospace;
-  font-size: 0.75rem;
+/* NAVBAR ALANI */
+.navbarWrapper {
+  width: 100%;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.25);
+  margin-bottom: 2.5rem;
+  background-color: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 768px) {
+  .navbarWrapper {
+    margin-bottom: 4rem;
+  }
+}
+
+.navbarInner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.logo {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: 1.5rem;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: #586352;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navMenu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .navMenu {
+    gap: 2.5rem;
+  }
+}
+
+.navLink {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #cccccc;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #c5a880;
+}
+
+.activeLink {
+  color: #c5a880;
+  font-weight: 700;
+  border-bottom: 2px solid #c5a880;
+  padding-bottom: 4px;
+}
+
+/* SAYFA ÜST BAŞLIĞI */
+.pageHeader {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+  padding-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .pageHeader {
+    margin-bottom: 3.5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.pageTitle {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.sectionBadge {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #c5a880;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   display: block;
+  font-weight: 600;
 }
 
 .mainTitle {
-  font-family: Georgia, serif;
+  font-family: var(--font-title, 'Cinzel', serif);
   font-size: clamp(1.8rem, 4vw, 3.2rem);
-  font-weight: 400;
-  color: #2b3227;
+  font-weight: 500;
+  color: #ffffff;
   margin: 0 0 2.5rem 0;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.5px;
 }
 
 @media (min-width: 768px) {
@@ -48,7 +140,7 @@
   flex-direction: column;
   gap: 3.5rem;
   margin-bottom: 4rem;
-  border-bottom: 1px solid rgba(43, 50, 39, 0.2);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
   padding-bottom: 4rem;
 }
 
@@ -60,12 +152,12 @@
   }
 }
 
-/* HER BİR KATEGORİ SECTION'I */
 .categorySectionItem {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
   align-items: center;
+  scroll-margin-top: 2rem;
 }
 
 @media (min-width: 992px) {
@@ -75,12 +167,12 @@
   }
 }
 
-/* GÖRSEL ALANI */
 .categoryImageWrapper {
   position: relative;
   width: 100%;
   height: 260px;
-  background-color: #ebe9e3;
+  background-color: #121212;
+  border: 1px solid rgba(197, 168, 128, 0.2);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -103,13 +195,18 @@
   object-fit: cover;
 }
 
-/* METİN KUTUSU */
+/* FOTOĞRAFLARIN YANINDAKİ KUTU */
 .categoryContent {
-  background-color: #efece6;
+  background-color: rgba(18, 18, 18, 0.85);
   padding: 2rem 1.5rem;
-  border-left: 4px solid #2b3227;
+  border-left: 4px solid #c5a880;
+  border-top: 1px solid rgba(197, 168, 128, 0.15);
+  border-right: 1px solid rgba(197, 168, 128, 0.15);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.15);
   display: flex;
   flex-direction: column;
+  border-radius: 0 4px 4px 0;
+  backdrop-filter: blur(5px);
 }
 
 @media (min-width: 768px) {
@@ -119,24 +216,26 @@
 }
 
 .categoryTitle {
-  font-family: Georgia, serif;
+  font-family: var(--font-title, 'Cinzel', serif);
   font-size: clamp(1.5rem, 3vw, 2.2rem);
-  color: #2b3227;
+  color: #c5a880;
   margin: 0 0 0.8rem 0;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .categoryDesc {
   font-size: 0.95rem;
-  line-height: 1.6;
-  color: #383e34;
+  line-height: 1.8;
+  color: #aaaaaa;
   margin: 0;
+  font-weight: 300;
 }
 
 @media (min-width: 768px) {
   .categoryDesc {
     font-size: 1.05rem;
-    line-height: 1.7;
+    line-height: 1.8;
   }
 }
 
@@ -161,7 +260,8 @@
   position: relative;
   width: 100%;
   height: 300px;
-  background-color: #ebe9e3;
+  background-color: #121212;
+  border: 1px solid rgba(197, 168, 128, 0.2);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -178,7 +278,7 @@
 }
 
 .accordionItem {
-  border-bottom: 1px solid rgba(43, 50, 39, 0.2);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
 }
 
 .accordionHeader {
@@ -201,11 +301,13 @@
 }
 
 .itemTitle {
+  font-family: var(--font-title, 'Cinzel', serif);
   font-size: 1rem;
   font-weight: 600;
-  color: #2b3227;
+  color: #f5f5f5;
   margin: 0;
   padding-right: 1rem;
+  letter-spacing: 0.5px;
 }
 
 @media (min-width: 768px) {
@@ -216,7 +318,7 @@
 
 .icon {
   font-size: 1.25rem;
-  color: #2b3227;
+  color: #c5a880;
 }
 
 .accordionBody {
@@ -225,9 +327,10 @@
 
 .itemDesc {
   font-size: 0.9rem;
-  line-height: 1.6;
-  color: #383e34;
+  line-height: 1.7;
+  color: #aaaaaa;
   margin: 0 0 0.8rem 0;
+  font-weight: 300;
 }
 
 @media (min-width: 768px) {
@@ -243,15 +346,17 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: #2b3227;
-  font-weight: 600;
+  color: #c5a880;
+  font-weight: 500;
   margin: 0;
+  letter-spacing: 1px;
 }
 
 /* PROJE VURGUSU */
 .projectHighlight {
-  background-color: #2b3227;
-  color: #f7f6f2;
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(8, 8, 8, 0.98) 100%);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  color: #f5f5f5;
   padding: 2.5rem 1.5rem;
   margin-bottom: 4rem;
   display: grid;
@@ -271,11 +376,12 @@
 }
 
 .projectTitle {
-  font-family: Georgia, serif;
+  font-family: var(--font-title, 'Cinzel', serif);
   font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 300;
+  font-weight: 500;
   margin: 0 0 1.2rem 0;
-  color: #f7f6f2;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
 .projectMetaTable {
@@ -284,7 +390,7 @@
 }
 
 .projectMetaTable tr {
-  border-bottom: 1px solid rgba(247, 246, 242, 0.15);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.15);
 }
 
 .projectMetaTable td {
@@ -300,16 +406,17 @@
 }
 
 .metaLabel {
-  font-family: monospace;
-  color: #a3b09a;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  color: #c5a880;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   width: 40%;
+  font-size: 0.8rem;
 }
 
 .metaValue {
-  color: #f7f6f2;
-  font-weight: 500;
+  color: #e0e0e0;
+  font-weight: 400;
   text-align: right;
 }
 
@@ -317,7 +424,8 @@
   position: relative;
   width: 100%;
   height: 250px;
-  background-color: #383e34;
+  background-color: #121212;
+  border: 1px solid rgba(197, 168, 128, 0.2);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -330,13 +438,18 @@
 
 /* İLETİŞİM KUTUSU */
 .contactBoard {
-  background-color: #efece6;
-  border-left: 4px solid #2b3227;
+  background-color: rgba(18, 18, 18, 0.85);
+  border-left: 4px solid #c5a880;
+  border-top: 1px solid rgba(197, 168, 128, 0.15);
+  border-right: 1px solid rgba(197, 168, 128, 0.15);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.15);
   padding: 2.5rem 1.5rem;
   margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  border-radius: 0 4px 4px 0;
+  backdrop-filter: blur(5px);
 }
 
 @media (min-width: 768px) {
@@ -351,19 +464,21 @@
 }
 
 .contactTitle {
-  font-family: Georgia, serif;
+  font-family: var(--font-title, 'Cinzel', serif);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: #2b3227;
+  color: #c5a880;
   margin: 0 0 0.8rem 0;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .contactText {
-  color: #383e34;
+  color: #aaaaaa;
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   max-width: 650px;
   margin: 0;
+  font-weight: 300;
 }
 
 @media (min-width: 768px) {
@@ -376,32 +491,37 @@
   display: inline-block;
   width: 100%;
   text-align: center;
-  padding: 0.9rem 1.5rem;
-  border: 1px solid #2b3227;
-  color: #2b3227;
+  padding: 0.9rem 1.8rem;
+  border: 1px solid #c5a880;
+  background-color: #c5a880;
+  color: #080808;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   border-radius: 2px;
 }
 
 @media (min-width: 768px) {
   .contactButton {
     width: auto;
-    padding: 1rem 2rem;
+    padding: 1rem 2.2rem;
   }
 }
 
 .contactButton:hover {
-  background-color: #2b3227;
-  color: #f7f6f2;
+  background-color: #d4b890;
+  border-color: #d4b890;
+  color: #000000;
+  transform: translateY(-2px);
 }
 
 /* FOOTER */
 .footer {
-  border-top: 2px solid #2b3227;
+  border-top: 1px solid rgba(197, 168, 128, 0.25);
   padding-top: 2.5rem;
   display: grid;
   grid-template-columns: 1fr;
@@ -423,20 +543,22 @@
 }
 
 .footerColTitle {
-  font-family: monospace;
-  font-size: 0.75rem;
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: 0.85rem;
   letter-spacing: 2px;
-  color: #586352;
+  color: #c5a880;
   text-transform: uppercase;
   margin-bottom: 1rem;
   display: block;
+  font-weight: 600;
 }
 
 .footerText {
   font-size: 0.88rem;
-  color: #383e34;
-  line-height: 1.6;
+  color: #888888;
+  line-height: 1.8;
   margin: 0;
+  font-weight: 300;
 }
 
 .footerList {
@@ -450,5 +572,5 @@
 
 .footerListItem {
   font-size: 0.88rem;
-  color: #2b3227;
+  color: #aaaaaa;
 }
