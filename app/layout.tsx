@@ -12,8 +12,11 @@ export const viewport: Viewport = {
 // GOOGLE ARAMA ETİKETLERİ VE SEO METADATA
 export const metadata: Metadata = {
   title: "SELUK | Prestijli Mermer & Mimari Doğal Taş Çözümleri",
-  description: "SELUK; yüksek segment mimari projelerde mermer, mekanik dış cephe kaplama, yer döşemesi ve özel bookmatch uygulamaları sunar.",
+  description: "Nihat Seluk liderliğinde SELUK; yüksek segment mimari projelerde mermer, mekanik dış cephe kaplama, yer döşemesi ve özel bookmatch uygulamaları sunar.",
   keywords: [
+    "Nihat Seluk",
+    "Seluk Mermer",
+    "Nihat Seluk mermer",
     "mermer",
     "doğal taş",
     "mimari kaplama",
@@ -24,11 +27,11 @@ export const metadata: Metadata = {
     "lüks mermer tasarımları",
     "SELUK mermer"
   ],
-  authors: [{ name: "SELUK" }],
+  authors: [{ name: "Nihat Seluk" }],
   robots: "index, follow",
   openGraph: {
     title: "SELUK | Prestijli Mermer & Mimari Doğal Taş Çözümleri",
-    description: "Lüks mimari projeler için özel mermer ve doğal taş çözümleri.",
+    description: "Nihat Seluk güvencesiyle lüks mimari projeler için özel mermer ve doğal taş çözümleri.",
     locale: "tr_TR",
     type: "website",
   },

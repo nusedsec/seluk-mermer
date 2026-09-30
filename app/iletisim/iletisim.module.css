@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+.page {
+  background-color: #080808;
+  color: #f5f5f5;
+  min-height: 100vh;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* NAVBAR */
+.navbarWrapper {
+  width: 100%;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.25);
+  margin-bottom: 3rem;
+  background-color: rgba(8, 8, 8, 0.9);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbarInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .navbarInner {
+    padding: 1.8rem 2rem;
+  }
+}
+
+.logo {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+  }
+}
+
+.logo span {
+  color: #c5a880;
+  font-weight: 300;
+}
+
+.navMenu {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .navMenu {
+    gap: 3rem;
+  }
+}
+
+.navLink {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #a0a0a0;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .navLink {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+}
+
+.navLink:hover,
+.activeLink {
+  color: #c5a880;
+}
+
+/* SAYFA BAŞLIĞI */
+.pageHeader {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .pageHeader {
+    margin-bottom: 5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.sectionBadge {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #c5a880;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .sectionBadge {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+  }
+}
+
+.pageTitle {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* İLETİŞİM ANA GRID YAPISI (MOBİL UYUMLU) */
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 6rem;
+}
+
+@media (min-width: 992px) {
+  .contactGrid {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+    margin-bottom: 8rem;
+  }
+}
+
+/* BİLGİ KUTULARI (SOL TARAF) */
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .infoColumn {
+    gap: 2.5rem;
+  }
+}
+
+.infoBox {
+  background-color: rgba(14, 14, 14, 0.95);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  border-left: 4px solid #c5a880;
+  padding: 2rem 1.5rem;
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .infoBox {
+    padding: 2.5rem;
+  }
+}
+
+.infoTitle {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 0 0 0.8rem 0;
+  letter-spacing: 1px;
+}
+
+.infoText {
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 300;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+  .infoText {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+}
+
+.infoText a {
+  color: #c5a880;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.infoText a:hover {
+  opacity: 0.8;
+}
+
+/* FORM ALANI (SAĞ TARAF) */
+.formColumn {
+  background-color: rgba(14, 14, 14, 0.95);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  padding: 2rem 1.5rem;
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .formColumn {
+    padding: 4rem;
+  }
+}
+
+.formTitle {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: #ffffff;
+  margin: 0 0 0.8rem 0;
+  letter-spacing: 1px;
+}
+
+.formSubtitle {
+  color: #888888;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .formSubtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formLabel {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: #c5a880;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .formLabel {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(197, 168, 128, 0.25);
+  padding: 1rem;
+  color: #ffffff;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.9rem;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .formInput,
+  .formTextarea {
+    padding: 1.1rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: #c5a880;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.submitButton {
+  background-color: #c5a880;
+  color: #080808;
+  border: none;
+  padding: 1.1rem 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .submitButton {
+    width: auto;
+    align-self: flex-start;
+    padding: 1.2rem 2.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+.submitButton:hover {
+  background-color: #d4b890;
+  transform: translateY(-2px);
+}
