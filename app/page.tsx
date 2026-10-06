@@ -8,28 +8,28 @@ const HERO_SLIDES = [
   {
     id: "yesil-cami",
     subtitle: "İSTANBUL - ÜMRANİYE",
-    title: "Seluk Mermer - Yeşilvadi Camii 2009",
+    title: "Yeşilvadi Camii 2009",
     description: "Geleneksel motiflerin modern doğal taş işçiliği ve mekanik kaplama teknikleriyle buluştuğu ibadet alanı projemiz.",
     bgImage: "/main1.webp"
   },
   {
     id: "atelier-towers",
     subtitle: "İSTANBUL - KUYUMCUKENT",
-    title: "Seluk Mermer - Atelier Towers 2026",
+    title: "Atelier Towers 2026",
     description: "Atasay güvencesiyle yükselen projede, mermer kaplama ve prestijli doğal taş çözümleri.",
     bgImage: "/main2.webp"
   },
   {
     id: "raparin-villa",
     subtitle: "IRAK - SÜLEYMANİYE",
-    title: "Seluk Mermer - Raparin Villa 2023",
+    title: "Raparin Villa 2023",
     description: "Özel kesim dış cephe mekanik fiber kaplaması ve prestijli iç mekan zemin çözümleri.",
     bgImage: "/main3.webp"
   },
   {
     id: "goldeneye-hotel",
     subtitle: "BULGARİSTAN - Svilengrad",
-    title: "Seluk Mermer - GoldenEye Hotel & Casino 2023",
+    title: "GoldenEye Hotel & Casino 2023",
     description: "Lüks mimari detaylar, geniş alan zemin döşemeleri ve özel üretim bookmatch mermer uygulamaları.",
     bgImage: "/main1.webp"
   }
@@ -290,9 +290,9 @@ export default function HomePage() {
           <div className="footer-col">
             <h4 className="footer-title">Sosyal Medya</h4>
             <ul className="footer-links">
-              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>Instagram</a></li>
-              <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>LinkedIn</a></li>
-            </ul>
+              <li><a href="https://www.instagram.com/selukmermer?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>Instagram</a></li>
+              <li><a href="https://www.linkedin.com/company/seluk/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>LinkedIn</a></li>
+            </ul>om
           </div>
 
           {/* Dokümantasyon */}

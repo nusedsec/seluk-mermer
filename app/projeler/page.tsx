@@ -1,11 +1,20 @@
+"use client";
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './projects.module.css';
 import { projectsData } from './projectsData';
 
 export default function ProjectsPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const completedProjects = projectsData.filter((p) => p.status === 'completed');
   const ongoingProjects = projectsData.filter((p) => p.status === 'ongoing');
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className={styles.page}>
@@ -15,19 +24,53 @@ export default function ProjectsPage() {
           <Link href="/" className={styles.logo}>
             SELUK<span>MERMER</span>
           </Link>
-          <nav className={styles.navMenu}>
-            <Link href="/" className={styles.navLink}>
-              Anasayfa
-            </Link>
-            <Link href="/uygulamalar" className={styles.navLink}>
-              Uygulamalar
-            </Link>
-            <Link href="/projeler" className={`${styles.navLink} ${styles.activeLink}`}>
-              Projeler
-            </Link>
-            <Link href="/iletisim" className={styles.navLink}>
-              İletişim
-            </Link>
+
+          {/* Mobil Hamburger Butonu */}
+          <button 
+            className={`${styles.menuToggle} ${isMenuOpen ? styles.active : ''}`} 
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav className={`${styles.navMenu} ${isMenuOpen ? styles.active : ''}`}>
+            <div className={styles.navItem}>
+              <Link href="/" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                Anasayfa
+              </Link>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/uygulamalar" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                Uygulamalar ▾
+              </Link>
+              <div className={styles.dropdownMenu}>
+                <Link href="/uygulamalar#yer-doseme" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Yer Döşeme</Link>
+                <Link href="/uygulamalar#duvar-kaplama" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Duvar Kaplama</Link>
+                <Link href="/uygulamalar#dis-cephe" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Dış Cephe</Link>
+                <Link href="/uygulamalar#mekanik-fiber-kaplama" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Mekanik Fiber Kaplama</Link>
+              </div>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/projeler" className={`${styles.navLink} ${styles.activeLink}`} onClick={() => setIsMenuOpen(false)}>
+                Projeler ▾
+              </Link>
+              <div className={styles.dropdownMenu}>
+                <Link href="/projeler#tamamlanan" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Tamamlanan Projeler</Link>
+                <Link href="/projeler#devam-eden" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Devam Eden Projeler</Link>
+                <Link href="/projeler#ozel-tasarimlar" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Özel Tasarımlar</Link>
+              </div>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/iletisim" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                İletişim
+              </Link>
+            </div>
           </nav>
         </div>
       </header>
@@ -117,7 +160,7 @@ export default function ProjectsPage() {
         </section>
 
         {/* 3. ÖZEL TASARIM VURGUSU */}
-        <section id="referanslar" className={styles.customDesignSection}>
+        <section id="ozel-tasarimlar" className={styles.customDesignSection}>
           <div>
             <span className={styles.sectionBadge}>MÜHENDİSLİK VE MİMARİ UZMANLIK</span>
             <h2 className={styles.customTitle}>Kişiye ve Projeye Özel Mermer Çözümleri</h2>
@@ -213,7 +256,7 @@ export default function ProjectsPage() {
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/company/seluk" target="_blank" rel="noopener noreferrer">
                   LinkedIn
                 </a>
               </li>

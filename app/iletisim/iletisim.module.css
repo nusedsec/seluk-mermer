@@ -20,16 +20,16 @@
   }
 }
 
-/* NAVBAR */
+/* NAVBAR ALANI */
 .navbarWrapper {
   width: 100%;
   border-bottom: 1px solid rgba(197, 168, 128, 0.25);
   margin-bottom: 3rem;
-  background-color: rgba(8, 8, 8, 0.9);
+  background-color: rgba(8, 8, 8, 0.95);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .navbarInner {
@@ -43,23 +43,25 @@
 
 @media (min-width: 768px) {
   .navbarInner {
-    padding: 1.8rem 2rem;
+    padding: 1.5rem 2rem;
   }
 }
 
 .logo {
   font-family: var(--font-title, 'Cinzel', serif);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   color: #ffffff;
   text-decoration: none;
+  z-index: 1002;
+  white-space: nowrap;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .logo {
-    font-size: 1.6rem;
-    letter-spacing: 3px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
   }
 }
 
@@ -68,38 +70,212 @@
   font-weight: 300;
 }
 
-.navMenu {
+/* MOBİL HAMBURGER BUTONU */
+.menuToggle {
   display: flex;
-  gap: 1.2rem;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+}
+
+.menuToggle span {
+  width: 100%;
+  height: 2px;
+  background-color: #c5a880;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.menuToggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menuToggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 @media (min-width: 768px) {
-  .navMenu {
-    gap: 3rem;
+  .menuToggle {
+    display: none;
   }
 }
 
-.navLink {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #a0a0a0;
-  text-decoration: none;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
+/* NAV MENÜ & DROPDOWN - MASAÜSTÜ TAŞMA ÇÖZÜMÜ */
+.navMenu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
+  .navMenu {
+    gap: 2rem; /* Sıkışmayı önlemek için optimize edildi */
+  }
+}
+
+@media (min-width: 1200px) {
+  .navMenu {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(197, 168, 128, 0.2);
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 1001;
+    overflow-y: auto;
+    padding: 5.5rem 1.8rem 2.5rem 1.8rem;
+  }
+
+  .navMenu.active {
+    right: 0;
+  }
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  font-family: var(--font-title, 'Cinzel', serif);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #cccccc;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+@media (min-width: 992px) {
   .navLink {
-    font-size: 0.85rem;
-    letter-spacing: 2px;
+    font-size: 0.82rem;
+    letter-spacing: 1.8px;
   }
 }
 
 .navLink:hover,
 .activeLink {
   color: #c5a880;
+}
+
+.activeLink {
+  font-weight: 700;
+}
+
+/* Masaüstü Dropdown */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(12, 12, 12, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  padding: 0.8rem 0;
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1005;
+}
+
+@media (min-width: 768px) {
+  .navItem:hover .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.dropdownItem {
+  font-family: var(--font-title, 'Cinzel', serif);
+  padding: 0.5rem 1.2rem;
+  font-size: 0.8rem;
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdownItem:hover {
+  color: #c5a880;
+  background: rgba(197, 168, 128, 0.05);
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .navItem {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navLink {
+    font-size: 0.95rem;
+    letter-spacing: 2.5px;
+    width: 100%;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: block;
+    white-space: normal;
+  }
+
+  .navItem .dropdownMenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+    border: none;
+    padding: 0.4rem 0 0.4rem 0.8rem;
+    box-shadow: none;
+    min-width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .dropdownItem {
+    color: #999;
+    font-size: 0.8rem;
+    padding: 0.3rem 0;
+  }
+
+  .dropdownItem:hover {
+    background: transparent;
+    color: #c5a880;
+    padding-left: 0.4rem;
+  }
 }
 
 /* SAYFA BAŞLIĞI */
@@ -123,6 +299,7 @@
   text-transform: uppercase;
   margin-bottom: 0.6rem;
   display: block;
+  font-family: var(--font-title, 'Cinzel', serif);
 }
 
 @media (min-width: 768px) {
@@ -141,7 +318,7 @@
   letter-spacing: 1px;
 }
 
-/* İLETİŞİM ANA GRID YAPISI (MOBİL UYUMLU) */
+/* İLETİŞİM ANA GRID YAPISI */
 .contactGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -273,6 +450,7 @@
   letter-spacing: 1.5px;
   color: #c5a880;
   text-transform: uppercase;
+  font-family: var(--font-title, 'Cinzel', serif);
 }
 
 @media (min-width: 768px) {
@@ -329,6 +507,7 @@
   width: 100%;
   border-radius: 2px;
   margin-top: 0.5rem;
+  font-family: var(--font-title, 'Cinzel', serif);
 }
 
 @media (min-width: 768px) {

@@ -1,7 +1,16 @@
+"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from './iletisim.module.css';
 
 export default function ContactPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className={styles.page}>
       {/* ÜST NAVİGASYON BARI */}
@@ -10,19 +19,53 @@ export default function ContactPage() {
           <Link href="/" className={styles.logo}>
             SELUK<span>MERMER</span>
           </Link>
-          <nav className={styles.navMenu}>
-            <Link href="/" className={styles.navLink}>
-              Anasayfa
-            </Link>
-            <Link href="/uygulamalar" className={styles.navLink}>
-              Uygulamalar
-            </Link>
-            <Link href="/projeler" className={styles.navLink}>
-              Projeler
-            </Link>
-            <Link href="/iletisim" className={`${styles.navLink} ${styles.activeLink}`}>
-              İletişim
-            </Link>
+
+          {/* Mobil Hamburger Butonu */}
+          <button 
+            className={`${styles.menuToggle} ${isMenuOpen ? styles.active : ''}`} 
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav className={`${styles.navMenu} ${isMenuOpen ? styles.active : ''}`}>
+            <div className={styles.navItem}>
+              <Link href="/" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                Anasayfa
+              </Link>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/uygulamalar" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                Uygulamalar ▾
+              </Link>
+              <div className={styles.dropdownMenu}>
+                <Link href="/uygulamalar#yer-doseme" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Yer Döşeme</Link>
+                <Link href="/uygulamalar#duvar-kaplama" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Duvar Kaplama</Link>
+                <Link href="/uygulamalar#dis-cephe" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Dış Cephe</Link>
+                <Link href="/uygulamalar#mekanik-fiber-kaplama" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Mekanik Fiber Kaplama</Link>
+              </div>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/projeler" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                Projeler ▾
+              </Link>
+              <div className={styles.dropdownMenu}>
+                <Link href="/projeler#tamamlanan" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Tamamlanan Projeler</Link>
+                <Link href="/projeler#devam-eden" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Devam Eden Projeler</Link>
+                <Link href="/projeler#ozel-tasarimlar" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Özel Tasarımlar</Link>
+              </div>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/iletisim" className={`${styles.navLink} ${styles.activeLink}`} onClick={() => setIsMenuOpen(false)}>
+                İletişim
+              </Link>
+            </div>
           </nav>
         </div>
       </header>
@@ -41,8 +84,8 @@ export default function ContactPage() {
             <div className={styles.infoBox}>
               <h3 className={styles.infoTitle}>Merkez Ofis</h3>
               <p className={styles.infoText}>
-                Organize Sanayi Bölgesi, Mermerciler Sitesi No: 42<br />
-                Başakşehir / İstanbul – Türkiye
+                 Burhaniye, Burhaniye Mahallesi No:4, 34676 
+                Üsküdar/İstanbul  Türkiye
               </p>
             </div>
 
@@ -159,8 +202,8 @@ export default function ContactPage() {
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                     Linkedin
                 </a>
               </li>
             </ul>

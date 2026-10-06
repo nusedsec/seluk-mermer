@@ -24,8 +24,10 @@
   width: 100%;
   border-bottom: 1px solid rgba(197, 168, 128, 0.25);
   margin-bottom: 2.5rem;
-  background-color: rgba(8, 8, 8, 0.85);
+  background-color: rgba(8, 8, 8, 0.92);
   backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 100;
 }
 
 @media (min-width: 768px) {
@@ -44,7 +46,7 @@
 }
 
 .logo {
-  font-family: var(--font-title, 'Cinzel', serif);
+  font-family: 'Cinzel', serif;
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -52,26 +54,101 @@
   text-decoration: none;
 }
 
-.navMenu {
+/* MOBİL HAMBURGER BUTONU */
+.menuToggle {
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 102;
+}
+
+.menuToggle span {
+  width: 100%;
+  height: 2px;
+  background-color: #c5a880;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hamburger Çarpı Animasyonu */
+.menuToggle.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menuToggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 @media (min-width: 768px) {
-  .navMenu {
-    gap: 2.5rem;
+  .menuToggle {
+    display: none;
   }
 }
 
+/* NAV MENÜ (MOBİL & DESKTOP) */
+.navMenu {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(15px);
+    border-left: 1px solid rgba(197, 168, 128, 0.2);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.8rem;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 101;
+    overflow-y: auto;
+    padding: 6rem 2rem 3rem 2rem;
+  }
+
+  .navMenu.active {
+    right: 0;
+  }
+}
+
+/* NAV ITEM & DROPDOWN YAPISI */
+.navItem {
+  position: relative;
+}
+
 .navLink {
-  font-size: 0.85rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
   font-weight: 500;
   color: #cccccc;
   text-decoration: none;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .navLink {
+    font-size: 0.85rem;
+  }
 }
 
 .navLink:hover {
@@ -83,6 +160,95 @@
   font-weight: 700;
   border-bottom: 2px solid #c5a880;
   padding-bottom: 4px;
+}
+
+/* Masaüstü Dropdown Menü */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(12, 12, 12, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  padding: 0.8rem 0;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 105;
+}
+
+@media (min-width: 768px) {
+  .navItem:hover .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.dropdownItem {
+  font-family: 'Cinzel', serif;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.dropdownItem:hover {
+  color: #c5a880;
+  background: rgba(197, 168, 128, 0.05);
+  padding-left: 1.5rem;
+}
+
+/* Mobil Cihazlarda Dropdown Düzenlemesi */
+@media (max-width: 767px) {
+  .navItem {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navLink {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: block;
+  }
+
+  .navItem .dropdownMenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+    box-shadow: none;
+    min-width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .dropdownItem {
+    color: #999;
+    font-size: 0.85rem;
+    padding: 0.4rem 0;
+  }
+
+  .dropdownItem:hover {
+    background: transparent;
+    color: #c5a880;
+    padding-left: 0.5rem;
+  }
 }
 
 /* SAYFA ÜST BAŞLIĞI */
@@ -100,7 +266,7 @@
 }
 
 .pageTitle {
-  font-family: var(--font-title, 'Cinzel', serif);
+  font-family: 'Cinzel', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 500;
   color: #ffffff;
@@ -109,8 +275,8 @@
 }
 
 .sectionBadge {
-  font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.75rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
   letter-spacing: 3px;
   color: #c5a880;
   text-transform: uppercase;
@@ -120,7 +286,7 @@
 }
 
 .mainTitle {
-  font-family: var(--font-title, 'Cinzel', serif);
+  font-family: 'Cinzel', serif;
   font-size: clamp(1.8rem, 4vw, 3.2rem);
   font-weight: 500;
   color: #ffffff;
@@ -216,7 +382,7 @@
 }
 
 .categoryTitle {
-  font-family: var(--font-title, 'Cinzel', serif);
+  font-family: 'Cinzel', serif;
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   color: #c5a880;
   margin: 0 0 0.8rem 0;
@@ -224,12 +390,15 @@
   letter-spacing: 1px;
 }
 
+/* KÜÇÜK HARF UYUMU GARANTİSİ İÇİN */
 .categoryDesc {
+  font-family: 'Cinzel', serif;
   font-size: 0.95rem;
   line-height: 1.8;
-  color: #aaaaaa;
+  color: #cccccc;
   margin: 0;
-  font-weight: 300;
+  font-weight: 400;
+  text-transform: none; /* Büyük harfe zorlamayı kesin olarak engeller */
 }
 
 @media (min-width: 768px) {
@@ -301,7 +470,7 @@
 }
 
 .itemTitle {
-  font-family: var(--font-title, 'Cinzel', serif);
+  font-family: 'Cinzel', serif;
   font-size: 1rem;
   font-weight: 600;
   color: #f5f5f5;
@@ -326,11 +495,13 @@
 }
 
 .itemDesc {
+  font-family: 'Cinzel', serif;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #aaaaaa;
+  color: #cccccc;
   margin: 0 0 0.8rem 0;
-  font-weight: 300;
+  font-weight: 400;
+  text-transform: none;
 }
 
 @media (min-width: 768px) {
@@ -350,6 +521,8 @@
   font-weight: 500;
   margin: 0;
   letter-spacing: 1px;
+  font-family: 'Cinzel', serif;
+  text-transform: none;
 }
 
 /* PROJE VURGUSU */
@@ -376,7 +549,7 @@
 }
 
 .projectTitle {
-  font-family: var(--font-title, 'Cinzel', serif);
+  font-family: 'Cinzel', serif;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 500;
   margin: 0 0 1.2rem 0;
@@ -396,6 +569,7 @@
 .projectMetaTable td {
   padding: 0.6rem 0;
   font-size: 0.85rem;
+  font-family: 'Cinzel', serif;
 }
 
 @media (min-width: 768px) {
@@ -406,7 +580,7 @@
 }
 
 .metaLabel {
-  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-family: 'Cinzel', serif;
   color: #c5a880;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -418,6 +592,7 @@
   color: #e0e0e0;
   font-weight: 400;
   text-align: right;
+  font-family: 'Cinzel', serif;
 }
 
 .projectImageWrapper {
@@ -464,7 +639,7 @@
 }
 
 .contactTitle {
-  font-family: var(--font-title, 'Cinzel', serif);
+  font-family: 'Cinzel', serif;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   color: #c5a880;
   margin: 0 0 0.8rem 0;
@@ -473,12 +648,14 @@
 }
 
 .contactText {
-  color: #aaaaaa;
+  font-family: 'Cinzel', serif;
+  color: #cccccc;
   font-size: 0.95rem;
   line-height: 1.7;
   max-width: 650px;
   margin: 0;
-  font-weight: 300;
+  font-weight: 400;
+  text-transform: none;
 }
 
 @media (min-width: 768px) {
@@ -488,6 +665,7 @@
 }
 
 .contactButton {
+  font-family: 'Cinzel', serif;
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -543,7 +721,7 @@
 }
 
 .footerColTitle {
-  font-family: var(--font-title, 'Cinzel', serif);
+  font-family: 'Cinzel', serif;
   font-size: 0.85rem;
   letter-spacing: 2px;
   color: #c5a880;
@@ -554,11 +732,13 @@
 }
 
 .footerText {
+  font-family: 'Cinzel', serif;
   font-size: 0.88rem;
-  color: #888888;
+  color: #aaaaaa;
   line-height: 1.8;
   margin: 0;
-  font-weight: 300;
+  font-weight: 400;
+  text-transform: none;
 }
 
 .footerList {
@@ -571,6 +751,7 @@
 }
 
 .footerListItem {
+  font-family: 'Cinzel', serif;
   font-size: 0.88rem;
   color: #aaaaaa;
 }

@@ -55,6 +55,7 @@ const technicalItems = [
 
 export default function ApplicationsPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -72,26 +73,73 @@ export default function ApplicationsPage() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <main className={styles.page} style={{ backgroundColor: "#0a0a0a", color: "#fff", minHeight: "100vh" }}>
 
-      {/* ÜST MÜŞTERİ / NAVİGASYON BARI */}
+      {/* ÜST MÜŞTERİ / NAVİGASYON BARI (MOBİL UYUMLU) */}
       <header className={styles.navbarWrapper}>
         <div className={styles.navbarInner}>
           <Link href="/" className={styles.logo}>
             SELUK MERMER
           </Link>
-          <nav className={styles.navMenu}>
-            <Link href="/" className={styles.navLink}>Anasayfa</Link>
-            <Link href="/uygulamalar" className={`${styles.navLink} ${styles.activeLink}`}>Uygulamalar</Link>
-            <Link href="/projeler" className={styles.navLink}>Projeler</Link>
-            <Link href="/iletisim" className={styles.navLink}>İletişim</Link>
+
+          {/* Mobil Hamburger Butonu */}
+          <button 
+            className={`${styles.menuToggle} ${isMenuOpen ? styles.active : ''}`} 
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav className={`${styles.navMenu} ${isMenuOpen ? styles.active : ''}`}>
+            <div className={styles.navItem}>
+              <Link href="/" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                ANASAYFA
+              </Link>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/uygulamalar" className={`${styles.navLink} ${styles.activeLink}`} onClick={() => setIsMenuOpen(false)}>
+                UYGULAMALAR ▾
+              </Link>
+              <div className={styles.dropdownMenu}>
+                <Link href="/uygulamalar#yer-doseme" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Yer Döşeme</Link>
+                <Link href="/uygulamalar#duvar-kaplama" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Duvar Kaplama</Link>
+                <Link href="/uygulamalar#havuz-kaplama" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Havuz Kaplama</Link>
+                <Link href="/uygulamalar#dis-cephe" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Dış Cephe</Link>
+                <Link href="/uygulamalar#mekanik-kaplama" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Mekanik Kaplama</Link>
+                <Link href="/uygulamalar#fiber-kaplama" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Fiber Kaplama</Link>
+              </div>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/projeler" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                PROJELER ▾
+              </Link>
+              <div className={styles.dropdownMenu}>
+                <Link href="/projeler#tamamlanan" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Tamamlanan Projeler</Link>
+                <Link href="/projeler#devam-eden" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Devam Eden Projeler</Link>
+                <Link href="/projeler#ozel-tasarimlar" className={styles.dropdownItem} onClick={() => setIsMenuOpen(false)}>Özel Tasarımlar</Link>
+              </div>
+            </div>
+
+            <div className={styles.navItem}>
+              <Link href="/iletisim" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                İLETİŞİM
+              </Link>
+            </div>
           </nav>
         </div>
       </header>
 
       <div className={styles.container}>
-
         {/* SAYFA BAŞLIĞI */}
         <div className={styles.pageHeader}>
           <span className={styles.sectionBadge}>ÇÖZÜMLERİMİZ</span>
@@ -125,7 +173,7 @@ export default function ApplicationsPage() {
           <div className={styles.techImageWrapper}>
             <Image
               src="/images/teknik-bolum.jpg"
-              alt="Mekanik Cephe ve Montaj Teknik Görseli"
+              alt="Mekanik cephe ve montaj teknik görseli"
               fill
               unoptimized
               className={styles.img}
@@ -194,7 +242,7 @@ export default function ApplicationsPage() {
           <div className={styles.projectImageWrapper}>
             <Image
               src="/images/dis-cephe.jpg"
-              alt="Seluk Genel Merkez Projesi"
+              alt="Seluk genel merkez projesi"
               fill
               unoptimized
               className={styles.img}
@@ -254,7 +302,11 @@ export default function ApplicationsPage() {
                     Instagram
                   </a>
                 </li>
-                <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li>
+                  <a href="http://linkedin.com/company/seluk" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                  </a>
+                </li>
               </ul>
             </div>
 
