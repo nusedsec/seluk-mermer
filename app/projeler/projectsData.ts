@@ -118,7 +118,7 @@ export const projectsData: Project[] = [
     marmorType: 'Gri & Siyah Mermer Kombinasyonları',
     year: '2026',
     area: '4.200 m²',
-    mainImage: '/main2.webp',
+    mainImage: '',
     gallery: [
       '/main2.webp',
       '/main1.webp'

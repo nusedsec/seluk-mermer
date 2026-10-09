@@ -10,14 +10,14 @@ const HERO_SLIDES = [
     subtitle: "İSTANBUL - ÜMRANİYE",
     title: "Yeşilvadi Camii 2009",
     description: "Geleneksel motiflerin modern doğal taş işçiliği ve mekanik kaplama teknikleriyle buluştuğu ibadet alanı projemiz.",
-    bgImage: "/main1.webp"
+    bgImage: "images/yesil-cami-1.webp"
   },
   {
     id: "atelier-towers",
     subtitle: "İSTANBUL - KUYUMCUKENT",
     title: "Atelier Towers 2026",
     description: "Atasay güvencesiyle yükselen projede, mermer kaplama ve prestijli doğal taş çözümleri.",
-    bgImage: "/main2.webp"
+    bgImage: "images/atelier-1.webp"
   },
   {
     id: "raparin-villa",
@@ -31,7 +31,7 @@ const HERO_SLIDES = [
     subtitle: "BULGARİSTAN - Svilengrad",
     title: "GoldenEye Hotel & Casino 2023",
     description: "Lüks mimari detaylar, geniş alan zemin döşemeleri ve özel üretim bookmatch mermer uygulamaları.",
-    bgImage: "/main1.webp"
+    bgImage: "images/goldeneye-1.webp"
   }
 ];
 
@@ -226,7 +226,7 @@ export default function HomePage() {
         </div>
 
         <div className="projects-grid">
-          <Link href="/projeler#yesil-cami" className="project-card" style={{ backgroundImage: "url('/main1.webp')", textDecoration: "none" }}>
+          <Link href="/projeler#yesil-cami" className="project-card" style={{ backgroundImage: "url('images/yesil-cami-2.webp')", textDecoration: "none" }}>
             <div className="project-card-overlay"></div>
             <div className="project-card-content">
               <span className="project-cat" style={{ fontWeight: 600 }}>İSTANBUL - ÜMRANİYE</span>
@@ -235,7 +235,7 @@ export default function HomePage() {
             </div>
           </Link>
 
-          <Link href="/projeler#atelier-towers" className="project-card" style={{ backgroundImage: "url('/main2.webp')", textDecoration: "none" }}>
+          <Link href="/projeler#atelier-towers" className="project-card" style={{ backgroundImage: "url('images/atelier-1.webp')", textDecoration: "none" }}>
             <div className="project-card-overlay"></div>
             <div className="project-card-content">
               <span className="project-cat" style={{ fontWeight: 600 }}>İSTANBUL - KUYUMCUKENT</span>
@@ -253,7 +253,7 @@ export default function HomePage() {
             </div>
           </Link>
 
-          <Link href="/projeler#goldeneye-hotel" className="project-card" style={{ backgroundImage: "url('/main1.webp')", textDecoration: "none" }}>
+          <Link href="/projeler#goldeneye-hotel" className="project-card" style={{ backgroundImage: "url('images/goldeneye-1.webp')", textDecoration: "none" }}>
             <div className="project-card-overlay"></div>
             <div className="project-card-content">
               <span className="project-cat" style={{ fontWeight: 600 }}>BULGARİSTAN - Svilengrad</span>

@@ -159,7 +159,106 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* 3. ÖZEL TASARIM VURGUSU */}
+        {/* 3. GEÇMİŞ BİTEN İŞLER TABLOSU */}
+        <section id="gecmis-isler" className={styles.historySection}>
+          <span className={styles.sectionBadge}>ARŞİV & REFERANSLAR</span>
+          <h2 className={styles.sectionTitle}>Geçmiş Tamamlanan Projelerimiz</h2>
+          <div className={styles.historyTableContainer}>
+            <table className={styles.historyTable}>
+              <thead>
+                <tr>
+                  <th>Proje Adı</th>
+                  <th>Konum</th>
+                  <th style={{ textAlign: 'right' }}>Yıl</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className={styles.historyProject}>Kaymakamlık Binası[cite: 6]</td>
+                  <td>Sefaköy[cite: 6]</td>
+                  <td className={styles.historyYear}>1999[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Hekimoğlu Plaza[cite: 6]</td>
+                  <td>Rami Kışla[cite: 6]</td>
+                  <td className={styles.historyYear}>2000[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Ağız ve Diş Sağ. Hastanesi[cite: 6]</td>
+                  <td>Okmeydanı[cite: 6]</td>
+                  <td className={styles.historyYear}>2002[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Hükümet Binaları[cite: 6]</td>
+                  <td>Astana (Kazakistan)[cite: 6]</td>
+                  <td className={styles.historyYear}>2006[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>İHH İstanbul Şubesi[cite: 6]</td>
+                  <td>Fatih[cite: 6]</td>
+                  <td className={styles.historyYear}>2008[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>İstikbal Showroom[cite: 6]</td>
+                  <td>Gümülcine (Yunanistan)[cite: 6]</td>
+                  <td className={styles.historyYear}>2008[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Kardelen Bebe Giyim[cite: 6]</td>
+                  <td>Ümraniye[cite: 6]</td>
+                  <td className={styles.historyYear}>2008[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Pamidor Bebe Giyim[cite: 6]</td>
+                  <td>Maltepe[cite: 6]</td>
+                  <td className={styles.historyYear}>2008[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Erciyes Boru Malikhanesi[cite: 6]</td>
+                  <td>Kanlıca[cite: 6]</td>
+                  <td className={styles.historyYear}>2010[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>ERS Gökdelenleri[cite: 6]</td>
+                  <td>Kiev (Ukrayna)[cite: 6]</td>
+                  <td className={styles.historyYear}>2010[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Beyaz İnşaat Villaları[cite: 6]</td>
+                  <td>Çatalca[cite: 6]</td>
+                  <td className={styles.historyYear}>2011[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Çamoluk Kuyumculuk[cite: 6]</td>
+                  <td>Ümraniye[cite: 6]</td>
+                  <td className={styles.historyYear}>2011[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Ekşioğlu Villası[cite: 6]</td>
+                  <td>Şile[cite: 6]</td>
+                  <td className={styles.historyYear}>2012[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Özel Alev Okulları[cite: 6]</td>
+                  <td>Ömerli[cite: 6]</td>
+                  <td className={styles.historyYear}>2012[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Yüksel İnşaat Showroom[cite: 6]</td>
+                  <td>Beykoz[cite: 6]</td>
+                  <td className={styles.historyYear}>2012[cite: 6]</td>
+                </tr>
+                <tr>
+                  <td className={styles.historyProject}>Kadın D. ve Çocuk Hastanesi[cite: 6]</td>
+                  <td>Esenler[cite: 6]</td>
+                  <td className={styles.historyYear}>2013[cite: 6]</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* 4. ÖZEL TASARIM VURGUSU */}
         <section id="ozel-tasarimlar" className={styles.customDesignSection}>
           <div>
             <span className={styles.sectionBadge}>MÜHENDİSLİK VE MİMARİ UZMANLIK</span>
@@ -186,7 +285,7 @@ export default function ProjectsPage() {
           </div>
           <div className={styles.customImageWrapper}>
             <Image
-              src="/main1.webp"
+              src="/images/siyah-logo.webp"
               alt="Özel Mermer Tasarımları"
               fill
               className={styles.cardImage}
@@ -195,7 +294,7 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* 4. İLETİŞİM BARI */}
+        {/* 5. İLETİŞİM BARI */}
         <section className={styles.contactBoard}>
           <div>
             <h2 className={styles.contactTitle}>Projenizi Birlikte Hayata Geçirelim</h2>

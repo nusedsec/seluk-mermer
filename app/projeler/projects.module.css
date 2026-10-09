@@ -493,6 +493,61 @@
   margin-bottom: 1.2rem;
 }
 
+/* GEÇMİŞ BİTEN İŞLER TABLOSU */
+.historySection {
+  margin: 5rem 0;
+  padding: 3rem 2rem;
+  background-color: rgba(12, 12, 12, 0.95);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  border-radius: 4px;
+}
+
+.historyTableContainer {
+  overflow-x: auto;
+}
+
+.historyTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+}
+
+.historyTable th {
+  font-family: var(--font-title, 'Cinzel', serif);
+  color: #c5a880;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.3);
+}
+
+.historyTable td {
+  padding: 1.1rem 1rem;
+  font-size: 0.95rem;
+  color: #cccccc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-weight: 300;
+}
+
+.historyTable tr:hover td {
+  background-color: rgba(197, 168, 128, 0.03);
+  color: #ffffff;
+}
+
+.historyYear {
+  font-family: var(--font-title, 'Cinzel', serif);
+  color: #c5a880;
+  font-weight: 600;
+  text-align: right;
+}
+
+.historyProject {
+  font-weight: 500;
+  color: #ffffff;
+}
+
 /* ÖZEL TASARIM SECTION */
 .customDesignSection {
   background: linear-gradient(135deg, rgba(18, 18, 18, 0.95) 0%, rgba(8, 8, 8, 0.98) 100%);

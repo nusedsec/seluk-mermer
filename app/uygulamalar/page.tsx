@@ -10,25 +10,25 @@ const categories = [
     id: "yer-doseme",
     title: "Yer Döşeme",
     desc: "İç ve dış mekanlar için yüksek dayanımlı, kaymazlık yüzey seçeneğine sahip ve ağır yaya trafiğine uygun özel ebatlı zemin çözümleri.",
-    imageSrc: "/images/yer-doseme.jpg",
+    imageSrc: "/images/yer-doseme.webp",
   },
   {
     id: "duvar-kaplama",
     title: "Duvar Kaplama",
     desc: "Mimari mekanlara estetik derinlik katan, geniş panel alternatifleri ve özel dokulu iç cephe kaplama sistemleri.",
-    imageSrc: "/images/duvar-kaplama.jpg",
+    imageSrc: "/images/raparin-1.webp",
   },
   {
     id: "dis-cephe",
     title: "Dış Cephe",
     desc: "Sert iklim koşullarına dayanıklı, UV korumalı ve binalara prestij katan mimari dış cephe kaplama konstrüksiyonları.",
-    imageSrc: "/images/dis-cephe.jpg",
+    imageSrc: "/main3.webp",
   },
   {
     id: "mekanik-fiber-kaplama",
     title: "Mekanik Fiber Kaplama",
     desc: "Fiber takviyeli kompozit yapısı sayesinde hafif ancak yüksek mukavemetli, mekanik taşıyıcılı ileri teknoloji cephe çözümleri.",
-    imageSrc: "/images/mekanik-fiber-kaplama.jpg",
+    imageSrc: "/images/mekanik-fiber-kaplama.webp",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function ApplicationsPage() {
         <section className={styles.technicalSection}>
           <div className={styles.techImageWrapper}>
             <Image
-              src="/images/teknik-bolum.jpg"
+              src="/images/yesil-cami-2.webp"
               alt="Mekanik cephe ve montaj teknik görseli"
               fill
               unoptimized
@@ -241,7 +241,7 @@ export default function ApplicationsPage() {
           </div>
           <div className={styles.projectImageWrapper}>
             <Image
-              src="/images/dis-cephe.jpg"
+              src="/images/siyah-logo.webp"
               alt="Seluk genel merkez projesi"
               fill
               unoptimized
