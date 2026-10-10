@@ -174,84 +174,84 @@ export default function ProjectsPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td className={styles.historyProject}>Kaymakamlık Binası[cite: 6]</td>
-                  <td>Sefaköy[cite: 6]</td>
-                  <td className={styles.historyYear}>1999[cite: 6]</td>
+                  <td className={styles.historyProject}>Kaymakamlık Binası</td>
+                  <td>Sefaköy</td>
+                  <td className={styles.historyYear}>1999</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Hekimoğlu Plaza[cite: 6]</td>
-                  <td>Rami Kışla[cite: 6]</td>
-                  <td className={styles.historyYear}>2000[cite: 6]</td>
+                  <td className={styles.historyProject}>Hekimoğlu Plaza</td>
+                  <td>Rami Kışla</td>
+                  <td className={styles.historyYear}>2000</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Ağız ve Diş Sağ. Hastanesi[cite: 6]</td>
-                  <td>Okmeydanı[cite: 6]</td>
-                  <td className={styles.historyYear}>2002[cite: 6]</td>
+                  <td className={styles.historyProject}>Ağız ve Diş Sağ. Hastanesi</td>
+                  <td>Okmeydanı</td>
+                  <td className={styles.historyYear}>2002</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Hükümet Binaları[cite: 6]</td>
-                  <td>Astana (Kazakistan)[cite: 6]</td>
-                  <td className={styles.historyYear}>2006[cite: 6]</td>
+                  <td className={styles.historyProject}>Hükümet Binaları</td>
+                  <td>Astana (Kazakistan)</td>
+                  <td className={styles.historyYear}>2006</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>İHH İstanbul Şubesi[cite: 6]</td>
-                  <td>Fatih[cite: 6]</td>
-                  <td className={styles.historyYear}>2008[cite: 6]</td>
+                  <td className={styles.historyProject}>İHH İstanbul Şubesi</td>
+                  <td>Fatih</td>
+                  <td className={styles.historyYear}>2008</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>İstikbal Showroom[cite: 6]</td>
-                  <td>Gümülcine (Yunanistan)[cite: 6]</td>
-                  <td className={styles.historyYear}>2008[cite: 6]</td>
+                  <td className={styles.historyProject}>İstikbal Showroom</td>
+                  <td>Gümülcine (Yunanistan)</td>
+                  <td className={styles.historyYear}>2008</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Kardelen Bebe Giyim[cite: 6]</td>
-                  <td>Ümraniye[cite: 6]</td>
-                  <td className={styles.historyYear}>2008[cite: 6]</td>
+                  <td className={styles.historyProject}>Kardelen Bebe Giyim</td>
+                  <td>Ümraniye</td>
+                  <td className={styles.historyYear}>2008</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Pamidor Bebe Giyim[cite: 6]</td>
-                  <td>Maltepe[cite: 6]</td>
-                  <td className={styles.historyYear}>2008[cite: 6]</td>
+                  <td className={styles.historyProject}>Pamidor Bebe Giyim</td>
+                  <td>Maltepe</td>
+                  <td className={styles.historyYear}>2008</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Erciyes Boru Malikhanesi[cite: 6]</td>
-                  <td>Kanlıca[cite: 6]</td>
-                  <td className={styles.historyYear}>2010[cite: 6]</td>
+                  <td className={styles.historyProject}>Erciyes Boru Malikhanesi</td>
+                  <td>Kanlıca</td>
+                  <td className={styles.historyYear}>2010</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>ERS Gökdelenleri[cite: 6]</td>
-                  <td>Kiev (Ukrayna)[cite: 6]</td>
-                  <td className={styles.historyYear}>2010[cite: 6]</td>
+                  <td className={styles.historyProject}>ERS Gökdelenleri</td>
+                  <td>Kiev (Ukrayna)</td>
+                  <td className={styles.historyYear}>2010</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Beyaz İnşaat Villaları[cite: 6]</td>
-                  <td>Çatalca[cite: 6]</td>
-                  <td className={styles.historyYear}>2011[cite: 6]</td>
+                  <td className={styles.historyProject}>Beyaz İnşaat Villaları</td>
+                  <td>Çatalca</td>
+                  <td className={styles.historyYear}>2011</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Çamoluk Kuyumculuk[cite: 6]</td>
-                  <td>Ümraniye[cite: 6]</td>
-                  <td className={styles.historyYear}>2011[cite: 6]</td>
+                  <td className={styles.historyProject}>Çamoluk Kuyumculuk</td>
+                  <td>Ümraniye</td>
+                  <td className={styles.historyYear}>2011</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Ekşioğlu Villası[cite: 6]</td>
-                  <td>Şile[cite: 6]</td>
-                  <td className={styles.historyYear}>2012[cite: 6]</td>
+                  <td className={styles.historyProject}>Ekşioğlu Villası</td>
+                  <td>Şile</td>
+                  <td className={styles.historyYear}>2012</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Özel Alev Okulları[cite: 6]</td>
-                  <td>Ömerli[cite: 6]</td>
-                  <td className={styles.historyYear}>2012[cite: 6]</td>
+                  <td className={styles.historyProject}>Özel Alev Okulları</td>
+                  <td>Ömerli</td>
+                  <td className={styles.historyYear}>2012</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Yüksel İnşaat Showroom[cite: 6]</td>
-                  <td>Beykoz[cite: 6]</td>
-                  <td className={styles.historyYear}>2012[cite: 6]</td>
+                  <td className={styles.historyProject}>Yüksel İnşaat Showroom</td>
+                  <td>Beykoz</td>
+                  <td className={styles.historyYear}>2012</td>
                 </tr>
                 <tr>
-                  <td className={styles.historyProject}>Kadın D. ve Çocuk Hastanesi[cite: 6]</td>
-                  <td>Esenler[cite: 6]</td>
-                  <td className={styles.historyYear}>2013[cite: 6]</td>
+                  <td className={styles.historyProject}>Kadın D. ve Çocuk Hastanesi</td>
+                  <td>Esenler</td>
+                  <td className={styles.historyYear}>2013</td>
                 </tr>
               </tbody>
             </table>
@@ -262,7 +262,7 @@ export default function ProjectsPage() {
         <section id="ozel-tasarimlar" className={styles.customDesignSection}>
           <div>
             <span className={styles.sectionBadge}>MÜHENDİSLİK VE MİMARİ UZMANLIK</span>
-            <h2 className={styles.customTitle}>Kişiye ve Projeye Özel Mermer Çözümleri</h2>
+            <h2 className={styles.customTitle}>Kişiye ve Projeye Özel Mermer Ç]özümleri</h2>
             <p className={styles.customText}>
               Sadece standart mermer tedariği sağlamıyor; blok seçiminden milimetrik CNC kesimlerine,
               yüzey işleme tekniklerinden şantiye montajına kadar projenizin her aşamasında Seluk Mermer'in
@@ -366,12 +366,10 @@ export default function ProjectsPage() {
           <div className="footer-col">
             <h4 className="footer-title">Dokümantasyon</h4>
             <ul className="footer-links">
+            
               <li>
-                <Link href="/projeler">Projeler</Link>
-              </li>
-              <li>
-                <a href="/dokumanlar/teknik-sartnameler.pdf" download>
-                  Teknik Şartnameler
+                <a href="/pdf/isler.pdf" download>
+                  Projeler
                 </a>
               </li>
             </ul>
@@ -380,7 +378,7 @@ export default function ProjectsPage() {
 
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Seluk Sanayi ve Tic. A.Ş. Tüm hakları saklıdır.</span>
-          <span>Mermer & Doğal Taş Mühendisliği</span>
+          <span>Mermer & Doğal Taş Sanatı</span>
         </div>
       </footer>
     </div>

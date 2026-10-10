@@ -314,15 +314,14 @@ export default function ApplicationsPage() {
             <div className="footer-col">
               <h4 className="footer-title">Dokümantasyon</h4>
               <ul className="footer-links">
-                <li><Link href="/projeler">Projeler</Link></li>
-                <li><a href="/dokumanlar/teknik-sartnameler.pdf" download>Teknik Şartnameler</a></li>
+                <li><a href="/pdf/isler.pdf" download>Projeler</a></li>
               </ul>
             </div>
           </div>
 
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} Seluk Sanayi ve Tic. A.Ş. Tüm hakları saklıdır.</span>
-            <span>Mermer & Doğal Taş Mühendisliği</span>
+            <span>Mermer & Doğal Taş Sanatı </span>
           </div>
         </footer>
 

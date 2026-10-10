@@ -230,7 +230,7 @@ export default function HomePage() {
             <div className="project-card-overlay"></div>
             <div className="project-card-content">
               <span className="project-cat" style={{ fontWeight: 600 }}>İSTANBUL - ÜMRANİYE</span>
-              <h3 className="project-title" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 600, textDecoration: "none" }}>Seluk Mermer - Yeşilvadi Camii 2009</h3>
+              <h3 className="project-title" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 600, textDecoration: "none" }}>Yeşilvadi Camii 2009</h3>
               <p className="project-desc" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 500, textDecoration: "none" }}>Kiptaş, Ümraniye Yeşilvadi Camii doğal taş ve mermer uygulamaları.</p>
             </div>
           </Link>
@@ -239,7 +239,7 @@ export default function HomePage() {
             <div className="project-card-overlay"></div>
             <div className="project-card-content">
               <span className="project-cat" style={{ fontWeight: 600 }}>İSTANBUL - KUYUMCUKENT</span>
-              <h3 className="project-title" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 600, textDecoration: "none" }}>Seluk Mermer - Atelier Towers 2026</h3>
+              <h3 className="project-title" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 600, textDecoration: "none" }}>Atelier Towers 2026</h3>
               <p className="project-desc" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 500, textDecoration: "none" }}>Atasay, Kuyumcukent mermer kaplama ve prestijli doğal taş çözümleri.</p>
             </div>
           </Link>
@@ -248,7 +248,7 @@ export default function HomePage() {
             <div className="project-card-overlay"></div>
             <div className="project-card-content">
               <span className="project-cat" style={{ fontWeight: 600 }}>IRAK - SÜLEYMANİYE</span>
-              <h3 className="project-title" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 600, textDecoration: "none" }}>Seluk Mermer - Raparin Villa 2023</h3>
+              <h3 className="project-title" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 600, textDecoration: "none" }}>Raparin Villa 2023</h3>
               <p className="project-desc" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 500, textDecoration: "none" }}>Süleymaniye lüks villa mermer dekorasyon ve taş projeleri.</p>
             </div>
           </Link>
@@ -257,7 +257,7 @@ export default function HomePage() {
             <div className="project-card-overlay"></div>
             <div className="project-card-content">
               <span className="project-cat" style={{ fontWeight: 600 }}>BULGARİSTAN - Svilengrad</span>
-              <h3 className="project-title" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 600, textDecoration: "none" }}>Seluk Mermer - GoldenEye Hotel & Casino 2023</h3>
+              <h3 className="project-title" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 600, textDecoration: "none" }}>GoldenEye Hotel & Casino 2023</h3>
               <p className="project-desc" style={{ fontFamily: "'Raleway', sans-serif", fontWeight: 500, textDecoration: "none" }}>Svilengrad otel ve casino mermer uygulamaları ve mimari çözümleri.</p>
             </div>
           </Link>
@@ -292,15 +292,15 @@ export default function HomePage() {
             <ul className="footer-links">
               <li><a href="https://www.instagram.com/selukmermer?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>Instagram</a></li>
               <li><a href="https://www.linkedin.com/company/seluk/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>LinkedIn</a></li>
-            </ul>om
+            </ul>
           </div>
 
           {/* Dokümantasyon */}
           <div className="footer-col">
             <h4 className="footer-title">Dokümantasyon</h4>
             <ul className="footer-links">
-              <li><a href="/dokumanlar/projeler.pdf" download style={{ textDecoration: "none" }}>Projeler (PDF)</a></li>
-              <li><a href="/dokumanlar/teknik-sartnameler.pdf" download style={{ textDecoration: "none" }}>Teknik Şartnameler</a></li>
+              <li><a href="/pdf/isler.pdf" download style={{ textDecoration: "none" }}>Projeler (PDF)</a></li>
+             
             </ul>
           </div>
         </div>
